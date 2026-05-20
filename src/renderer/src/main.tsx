@@ -1,14 +1,17 @@
-import './assets/main.css'
+import './assets/css/main.css'
 
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import App from './App'
-import { HashRouter } from 'react-router-dom'
+import Login from './Login'
+import { HashRouter, Route, Routes } from 'react-router-dom'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <HashRouter>
-      <App />
+      <Routes>
+        <Route path='/' element={<Login/>}/>
+      </Routes>
+      
     </HashRouter>
   </StrictMode>
 )
