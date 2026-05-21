@@ -7,4 +7,55 @@
     flex-direction: row;
     align-items: center;
     gap: 20px;
+    font-size: 26px;
+  font-weight: 700;
+  color: #1a1a1a;
+  letter-spacing: -0.5px;
+}
+* {
+    box-sizing: border-box;
+    margin: 0;          
+    padding: 0;
+}
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+.tela-login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+}
+.titulo {
+    font-size: 24px;
+    font-weight: 500;
+    color: #1a1a1a;
+}
+.login_senha{  
+    font-size: 11px;
+    font-weight: 600;
+    color: #555;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.login_senha input{
+    padding: 11px 14px;
+  border-radius: 8px;
+  border: 1.5px solid #e0e0e0;
+  font-size: 14px;
+  color: #333;
+  background-color: #fafafa;
+  outline: none;
+  width: 100%;
+  transition: border-color 0.2s;
+
 }

@@ -38,7 +38,7 @@ export default function Login() {
       <form className="formulario" onSubmit={lidar_login}>
         <div className="login_senha">
           <h3>LOGIN</h3>
-          <input
+          <input 
             type="text"
             placeholder="usuario@wheeltrack.com.br"
             value={email}
