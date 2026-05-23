@@ -1,0 +1,113 @@
+.docs-container {
+  padding: 30px;
+  background-color: #f8fafc;
+  min-height: 100vh;
+  font-family: 'Inter', sans-serif;
+}
+.docs-header { /* CABEÇALHO */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+.docs-titulo {
+  font-size: 24px;
+  color: #111;
+  margin: 0;
+}
+.docs-subtitulo {
+  font-size: 14px;
+  color: #888;
+  margin-top: 4px;
+}
+.btn-enviar-doc {
+  background-color: #f04e23; /* Laranja WheelTrack */
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.docs-main-card { /* CARD PRINCIPAL */
+  background: white;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  overflow: hidden;
+}
+.docs-busca-area {
+  padding: 20px;
+  border-bottom: 1px solid #f1f5f9;
+}
+.docs-input-busca {
+  width: 100%;
+  padding: 12px 15px;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  background-color: #fcfcfc;
+  outline-color: #f04e23;
+}
+.docs-tabela { /* TABELA */
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.docs-tabela th {
+  background-color: #f8fafc;
+  padding: 12px 20px;
+  text-align: left;
+  color: #94a3b8;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.docs-tabela td {
+  padding: 15px 20px;
+  border-bottom: 1px solid #f1f5f9;
+  color: #334155;
+}
+.doc-nome-celula {
+  font-weight: 500;
+  color: #1e293b;
+}
+.txt-centro { 
+    text-align: center; 
+}
+.badge-tipo {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+}
+.badge-tipo.certificado { 
+    background-color: #fee2e2; 
+    color: #ef4444; 
+}
+.badge-tipo.laudo { 
+    background-color: #f0fdf4; 
+    color: #22c55e; 
+}
+.badge-tipo.termo { background-color: #f1f5f9; 
+    color: #64748b; 
+}
+.doc-acoes-celula { /* AÇÕES */
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+.btn-doc-acao {
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 6px 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.btn-doc-acao:hover {
+  background-color: #f1f5f9;
+  border-color: #cbd5e1;
+}

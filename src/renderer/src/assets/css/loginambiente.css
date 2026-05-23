@@ -1,0 +1,123 @@
+.login-externo {
+  width: 100vw;
+  height: 100vh;
+  background-color: #f8fafc;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Inter', sans-serif;
+}
+.login-logo-topo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.login-logo-topo img {
+  height: 40px;
+}
+.logo-texto {
+  font-size: 32px;
+  font-weight: 800;
+  color: #1e293b;
+}
+.logo-texto .verde {
+  color: #88b04b;
+}
+.subtitulo-login {
+  color: #64748b;
+  font-size: 14px;
+  margin-bottom: 30px;
+}
+.card-acesso {
+  background: white;
+  width: 100%;
+  max-width: 500px;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e2e8f0;
+}
+.titulo-acesso {
+  font-size: 16px;
+  font-weight: 700;
+  color: #475569;
+  margin-bottom: 30px;
+  letter-spacing: 0.5px;
+}
+.campo-login {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.campo-login label, .ambiente-secao label {
+  font-size: 11px;
+  font-weight: 700;
+  color: #64748b;
+}
+.select-login {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  background-color: #fcfcfc;
+  color: #1e293b;
+  font-size: 14px;
+  cursor: pointer;
+}
+.ambiente-secao { /* GRID DE AMBIENTES */
+  margin-top: 25px;
+  margin-bottom: 35px;
+}
+.grid-ambientes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 10px;
+}
+.btn-ambiente {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 15px;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  background: white;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  color: #475569;
+  transition: all 0.2s;
+}
+.btn-ambiente:hover {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+}
+.btn-ambiente.ativo {
+  background: #f0fdf4;
+  border-color: #88b04b;
+  color: #166534;
+}
+.btn-ambiente.ativo .ambiente-icone {
+  opacity: 1;
+}
+.ambiente-icone {
+  font-size: 16px;
+  opacity: 0.7;
+}
+.btn-acessar-principal { /* BOTÃO ACESSAR */
+  width: 100%;
+  padding: 15px;
+  border-radius: 8px;
+  border: none;
+  background-color: #f04e23; /* Laranja WheelTrack */
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn-acessar-principal:hover {
+  background-color: #d4411b;
+}

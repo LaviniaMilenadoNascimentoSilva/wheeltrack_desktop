@@ -3,6 +3,16 @@ import './assets/css/main.css'
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import Login from './Login'
+import LoginAmbiente from './loginambiente'
+import Inicio from './inicio' 
+import Funcionarios from './funcionarios'
+import Clientes from './clientes'
+import Veiculos from './veiculo'
+import Blindagem from './blindagem'
+import Manutencao from './manutencao'
+import Documentos from './documento'
+import Configuracoes from './configuracoes'
+
 import { HashRouter, Route, Routes } from 'react-router-dom'
 
 createRoot(document.getElementById('root')!).render(
@@ -10,8 +20,16 @@ createRoot(document.getElementById('root')!).render(
     <HashRouter>
       <Routes>
         <Route path="/" element={<Login />} />
-        <Route path="/home" element={<h1>Home</h1>} />
+        <Route path="/home" element={<Inicio />} />
+        <Route path="/login-ambiente" element={<LoginAmbiente />} />
+        <Route path="/funcionarios" element={<Funcionarios />} />
+        <Route path="/clientes" element={<Clientes />} />
+        <Route path="/veiculos" element={<Veiculos />} />
+        <Route path="/blindagem" element={<Blindagem />} />
+        <Route path="/manutencao" element={<Manutencao />} />
+        <Route path="/documentos" element={<Documentos />} />
+        <Route path="/configuracoes" element={<Configuracoes />} />
       </Routes>
     </HashRouter>
   </StrictMode>
-)
+)  

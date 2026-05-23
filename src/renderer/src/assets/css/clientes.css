@@ -1,0 +1,134 @@
+.pagina-container {
+  padding: 32px;
+  background-color: #f1f5f9;
+  min-height: 100vh;
+  font-family: 'Inter', sans-serif;
+}
+.cabecalho-clientes {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+.titulo-secao { 
+    font-size: 26px; 
+    color: #0f172a; 
+    margin: 0; 
+}
+.subtitulo-secao { 
+    color: #64748b; 
+    font-size: 14px;
+ }
+.abas-navegacao { /* Navegação de Abas */
+  display: flex;
+  gap: 24px;
+  border-bottom: 2px solid #e2e8f0;
+  margin-bottom: 24px;
+}
+.aba-link {
+  padding: 12px 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #64748b;
+  font-weight: 600;
+  border-bottom: 3px solid transparent;
+  transition: all 0.2s;
+}
+.aba-link.ativa {
+  color: #3b6d11; /* Cor da WheelTrack */
+  border-bottom-color: #3b6d11;
+}
+.tabela-wrapper { /* Tabela e Filtros */
+  background: #fff;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+.tabela-clientes {
+  width: 100%;
+  border-collapse: collapse;
+}
+.tabela-clientes th {
+  background: #f8fafc;
+  padding: 16px;
+  text-align: left;
+  font-size: 11px;
+  text-transform: uppercase;
+  color: #94a3b8;
+  letter-spacing: 0.05em;
+}
+.tabela-clientes td {
+  padding: 16px;
+  border-top: 1px solid #f1f5f9;
+  font-size: 14px;
+  color: #1e293b;
+}
+.txt-destaque { 
+    color: #3b6d11; 
+    font-weight: 600; 
+}
+.txt-dir { 
+    text-align: right; 
+}
+.tag-status { /* Status e Botões */
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 700;
+}
+.tag-status.ativo { 
+    background: #dcfce7; 
+    color: #166534; 
+}
+.btn-novo {
+  background: #3b6d11;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.btn-mini {
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  padding: 6px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-left: 4px;
+}
+.card-form { /* Formulário */
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+}
+.grid-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.campo-grupo { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 8px; 
+}
+.campo-grupo label { 
+    font-size: 13px; 
+    font-weight: 600; 
+    color: #475569; 
+}
+.campo-grupo input {
+  padding: 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  outline-color: #3b6d11;
+}
+.acoes-form {
+  margin-top: 32px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+}

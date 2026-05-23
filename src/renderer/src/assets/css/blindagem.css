@@ -1,0 +1,217 @@
+.blindagem-container {
+  padding: 30px;
+  background: #f8fafc;
+  min-height: 100vh;
+  font-family: 'Inter', sans-serif;
+}
+.blindagem-header { /* --- CABEÇALHO --- */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+.titulo-secao {
+  font-size: 24px;
+  color: #1e293b;
+  margin: 0;
+}
+.subtitulo-secao {
+  color: #64748b;
+  font-size: 14px;
+}
+.btn-nova-os {
+  background: #f04e23;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn-nova-os:hover {
+  background: #d4411b;
+}
+.progresso-geral { /* --- BARRA DE PROGRESSO --- */
+  margin-bottom: 30px;
+}
+.progresso-info {
+  font-size: 13px;
+  color: #475569;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+.barra-fundo {
+  height: 8px;
+  background: #e2e8f0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.barra-preenchida {
+  height: 100%;
+  background: #88b04b;
+  border-radius: 10px;
+  transition: width 0.5s ease-in-out;
+}
+.grid-etapas { /* --- GRID DE ETAPAS (WORKFLOW) --- */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 30px;
+}
+.card-etapa {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  transition: all 0.3s ease;
+}
+.card-etapa.ativa {
+  border-color: #88b04b;
+  box-shadow: 0 0 0 1px #88b04b;
+}
+.card-etapa.destaque {
+  border-color: #f04e23;
+}
+.etapa-numero {
+  width: 32px;
+  height: 32px;
+  background: #f1f5f9;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: bold;
+  color: #3b6d11;
+  margin-bottom: 12px;
+}
+.etapa-titulo {
+  font-size: 15px;
+  margin: 0 0 6px 0;
+  color: #1e293b;
+}
+.etapa-desc {
+  font-size: 12px;
+  color: #64748b;
+  margin: 0;
+  line-height: 1.4;
+}
+.tabela-blindagem-box { /* --- TABELA --- */
+  background: white;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+.tabela-blindagem {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.tabela-blindagem th {
+  background: #f8fafc;
+  padding: 12px 15px;
+  text-align: left;
+  color: #94a3b8;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.tabela-blindagem td {
+  padding: 15px;
+  border-bottom: 1px solid #f1f5f9;
+  color: #334155;
+}
+.etapa-tag {
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+}
+.etapa-tag.v-03 {
+  background: #f0fdf4;
+  color: #166534;
+}
+.status-os {
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: bold;
+}
+.status-os.andamento {
+  background: #fff7ed;
+  color: #9a3412;
+}
+.form-os-card { /* --- FORMULÁRIO --- */
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+}
+.form-os-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.form-os-titulo {
+  font-size: 16px;
+  margin-bottom: 25px;
+  color: #1e293b;
+  border-bottom: 1px solid #f1f5f9;
+  padding-bottom: 15px;
+}
+.campo-os {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.campo-os.full {
+  grid-column: span 3;
+}
+.campo-os label {
+  font-size: 11px;
+  font-weight: bold;
+  color: #64748b;
+  text-transform: uppercase;
+}
+.campo-os select, 
+.campo-os input, 
+.campo-os textarea {
+  padding: 10px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  background: #fcfcfc;
+  font-size: 14px;
+  outline-color: #88b04b;
+}
+.campo-os textarea {
+  height: 100px;
+  resize: none;
+}
+.form-os-acoes {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 30px;
+}
+.btn-abrir-os {
+  background: #88b04b;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.btn-cancelar {
+  background: white;
+  border: 1px solid #e2e8f0;
+  padding: 12px 25px;
+  border-radius: 8px;
+  cursor: pointer;
+  color: #64748b;
+}
+.btn-cancelar:hover {
+  background: #f8fafc;
+}

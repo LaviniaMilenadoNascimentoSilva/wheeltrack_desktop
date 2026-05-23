@@ -1,0 +1,169 @@
+.pagina-veiculos { 
+    padding: 25px; 
+    background: #f5f5f3; 
+    min-height: 100vh; 
+    font-family: sans-serif; 
+}
+.topo-flex { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    margin-bottom: 25px; 
+}
+.titulo-pg { 
+    font-size: 24px; 
+    margin: 0; 
+    color: #111; 
+}
+.subtitulo-pg { 
+    color: #888; 
+    margin: 5px 0; 
+    font-size: 14px; 
+}
+.btn-laranja { 
+  background: #f04e23; 
+  color: #fff; 
+  border: none; 
+  padding: 12px 20px; 
+  border-radius: 8px; 
+  font-weight: bold; 
+  cursor: pointer;
+}
+/* Grid de Cards */.grid-cards-veiculos { 
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 20px; 
+    margin-bottom: 30px; 
+}
+.card-v { background: #fff; 
+    border-radius: 12px; 
+    padding: 20px; 
+    border: 1px solid #e5e5e5; 
+    position: relative; 
+}
+.card-v-header { 
+    display: flex; 
+    justify-content: space-between; 
+    margin-bottom: 15px; 
+}
+.placa-badge-v { 
+    background: #000; 
+    color: #fff; 
+    padding: 4px 10px; 
+    border-radius: 6px; 
+    font-family: monospace; 
+    font-weight: bold; 
+}
+.status-v-tag { 
+    display: inline-block; 
+    padding: 4px 12px; 
+    border-radius: 20px; 
+    font-size: 12px; 
+    font-weight: bold; 
+}
+.status-v-tag.vermelho { 
+    background: #fee2e2; 
+    color: #b91c1c; 
+}
+.status-v-tag.verde { 
+    background: #f0fdf4; 
+    color: #166534; 
+}
+.status-v-tag.cinza { 
+    background: #f3f4f6; 
+    color: #374151; 
+}
+/* Tabela */
+.tabela-container-v { 
+    background: #fff; 
+    border-radius: 12px; 
+    border: 1px solid #e5e5e5; 
+    overflow: hidden; 
+}
+.busca-v { 
+    padding: 15px; 
+    border-bottom: 1px solid #eee; 
+}
+.busca-v input { 
+    width: 100%; 
+    padding: 10px; 
+    border-radius: 8px; 
+    border: 1px solid #ddd; 
+}
+.tabela-v { 
+    width: 100%; 
+    border-collapse: collapse; 
+    font-size: 13px; 
+}
+.tabela-v th { 
+    text-align: left; 
+    background: #fafafa; 
+    padding: 12px 15px; 
+    color: #999; 
+}
+.tabela-v td { 
+    padding: 15px; 
+    border-bottom: 1px solid #f5f5f5; 
+}
+.badge-v { 
+    padding: 4px 8px; 
+    border-radius: 6px; 
+    font-size: 11px; 
+    font-weight: bold; 
+}
+.badge-v.blindagem { 
+    background: #fee2e2; 
+    color: #b91c1c; 
+}
+
+/* Formulário */
+.form-card-v { 
+    background: #fff; 
+    padding: 25px; 
+    border-radius: 12px; 
+    border: 1px solid #e5e5e5; }
+.form-grid-v { 
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 15px; 
+}
+.campo-v { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 5px; 
+}
+.campo-v.full { 
+    grid-column: span 3; 
+}
+.campo-v label { 
+    font-size: 11px; 
+    font-weight: bold; 
+    color: #888; 
+}
+.campo-v input, .campo-v select { 
+    padding: 10px; 
+    border-radius: 8px; 
+    border: 1px solid #ddd; 
+    background: #fcfcfc; 
+}
+.form-botoes-v { 
+    display: flex; 
+    justify-content: flex-end; 
+    gap: 10px; 
+    margin-top: 25px; 
+}
+.btn-v-salvar { 
+    background: #88b04b; 
+    color: white; border: 
+    none; padding: 12px 25px; 
+    border-radius: 8px; 
+    font-weight: bold; 
+    cursor: pointer; 
+}
+.btn-v-cancelar { 
+    background: #fff; 
+    border: 1px solid #ddd; 
+    padding: 12px 25px; 
+    border-radius: 8px; 
+    cursor: pointer; 
+}
