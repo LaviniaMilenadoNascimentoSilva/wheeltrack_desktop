@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
-import './LoginAmbiente.css';
-import logo from './assets/imagens/wheeltrack.png'; // Verifique o caminho da sua logo
+import React, { useState } from 'react'
+import './assets/css/loginambiente.css'
+import logo from './assets/imagens/wheeltrack.png' // Verifique o caminho da sua logo
+import { useNavigate } from 'react-router-dom'
 
 export default function LoginAmbiente() {
-  const [ambiente, setAmbiente] = useState('');
+  const [ambiente, setAmbiente] = useState('')
+  const navigate = useNavigate()
 
   const ambientes = [
     { id: 'funcionarios', nome: 'Funcionários', icone: '👥' },
@@ -11,14 +13,16 @@ export default function LoginAmbiente() {
     { id: 'veiculos', nome: 'Veículos', icone: '🚗' },
     { id: 'blindagem', nome: 'Blindagem', icone: '🛡️' },
     { id: 'manutencao', nome: 'Manutenção', icone: '🔧' },
-    { id: 'documentos', nome: 'Documentos', icone: '📄' },
-  ];
+    { id: 'documentos', nome: 'Documentos', icone: '📄' }
+  ]
 
   return (
     <div className="login-externo">
       <div className="login-logo-topo">
         <img src={logo} alt="WheelTrack Logo" />
-        <span className="logo-texto">Wheel<span className="verde">Track</span></span>
+        <span className="logo-texto">
+          Wheel<span className="verde">Track</span>
+        </span>
       </div>
       <p className="subtitulo-login">Selecione a empresa, filial e ambiente de acesso</p>
 
@@ -55,10 +59,8 @@ export default function LoginAmbiente() {
           </div>
         </div>
 
-        <button className="btn-acessar-principal">
-          Acessar
-        </button>
+        <button className="btn-acessar-principal" onClick={() => navigate('/home')}>Acessar</button>
       </div>
     </div>
-  );
-};
+  )
+}

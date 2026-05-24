@@ -4,7 +4,8 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import Login from './Login'
 import LoginAmbiente from './loginambiente'
-import Inicio from './inicio' 
+import Inicio from './inicio'
+import Cadastro from './cadastro'
 import Funcionarios from './funcionarios'
 import Clientes from './clientes'
 import Veiculos from './veiculo'
@@ -29,7 +30,8 @@ createRoot(document.getElementById('root')!).render(
         <Route path="/manutencao" element={<Manutencao />} />
         <Route path="/documentos" element={<Documentos />} />
         <Route path="/configuracoes" element={<Configuracoes />} />
+        <Route path="/cadastro" element={<Cadastro />} />
       </Routes>
     </HashRouter>
   </StrictMode>
-)  
+)

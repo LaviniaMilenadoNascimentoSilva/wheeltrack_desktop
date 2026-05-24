@@ -7,21 +7,33 @@ import { useNavigate } from 'react-router-dom'
 export default function Login() {
   const [email, setEmail] = useState('')
   const [senha, setSenha] = useState('')
+  const [erro, setErro] = useState<string | null>(null)
   const navigate = useNavigate()
 
   const lidar_login = async (event: React.FormEvent): Promise<void> => {
     event.preventDefault()
+    setErro(null)
+
+    if (!email.trim() || !senha.trim()) {
+      setErro('Por favor, preencha todos os campos antes de continuar.')
+      setTimeout(() => setErro(null), 4000)
+      return
+    }
+
     try {
-      const retorno = await login(email, senha)
-      console.log('Sucesso ao logar:', retorno)
-      if (retorno && retorno.id_admin) {
+      const resposta = await login(email, senha)
+      console.log('Sucesso ao logar:', resposta)
+      if (resposta.sucesso) {
         alert('Login bem-sucedido!')
-        navigate('/home')
+        navigate('/login-ambiente')
       } else {
-        alert('Falha no login: ' + (retorno.mensagem || 'Erro desconhecido'))
+        setErro(resposta.mensagem)
+        setTimeout(() => setErro(null), 4000)
       }
     } catch (error) {
       console.error('Erro ao logar:', error)
+      setErro('Ocorreu um erro ao tentar logar. Por favor, tente novamente mais tarde.')
+      setTimeout(() => setErro(null), 4000)
     }
   }
 
@@ -35,10 +47,11 @@ export default function Login() {
         <h1>Bem-vindo</h1>
         <p>Faça login para acessar o sistema WheelTrack</p>
       </div>
+      {erro && <div className="mensagem_erro">{erro}</div>}
       <form className="formulario" onSubmit={lidar_login}>
         <div className="login_senha">
           <h3>LOGIN</h3>
-          <input 
+          <input
             type="text"
             placeholder="usuario@wheeltrack.com.br"
             value={email}
@@ -53,8 +66,10 @@ export default function Login() {
           />
         </div>
         <div className="botao_entrar">
-          <button>Entrar</button>
-          <button>Esqueceu sua senha?</button>
+          <button type="submit" className="botao_login">
+            Entrar
+          </button>
+          <button className="botao_login">Esqueceu sua senha?</button>
         </div>
       </form>
     </div>

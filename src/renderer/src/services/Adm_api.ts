@@ -24,3 +24,31 @@ export async function login(email: string, senha: string): Promise<any> {
 
   return await resposta.json()
 }
+
+export async function cadastro(
+  nome_admin: string,
+  email_admin: string,
+  senha_admin: string,
+  cnpj: string
+): Promise<any> {
+  const resposta = await fetch(`${URL_BASE}/cadastro`, {
+    method: 'POST',
+    headers: {
+      'content-type': 'application/json'
+    },
+    body: JSON.stringify({
+      nome_admin: nome_admin,
+      cnpj: cnpj,
+      email_admin: email_admin,
+      senha_admin: senha_admin
+    })
+  })
+  if (!resposta.ok) {
+    const dadosErro = await resposta.json().catch(() => null)
+    if (dadosErro) {
+      throw new Error(`Erro no cadastro: ${dadosErro.mensagem || 'Erro desconhecido'}`)
+    }
+    throw new Error(`Erro no servidor: ${resposta.status}`)
+  }
+  return await resposta.json()
+}
