@@ -1,40 +1,33 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './assets/css/clientes.css'
 import MenuLateral from './menuLateral'
-
-interface Cliente {
-  // Interface para organizar os dados do cliente
-  id: number
-  nome: string
-  documento: string // CPF ou CNPJ
-  cidade: string
-  veiculos: number
-  status: 'Ativo' | 'Inativo'
-}
+import { Listar_clientes } from './services/clientes_api'
 
 export default function Clientes() {
   const [abaAtiva, setAbaAtiva] = useState<'lista' | 'cadastro'>('lista')
   const [busca, setBusca] = useState('')
+  const [clientes, setClientes] = useState<any[]>([])
 
-  const clientes: Cliente[] = [
-    // Exemplo de dados (na prática viriam de uma API)
-    {
-      id: 1,
-      nome: 'João Pedro Almeida',
-      documento: '111.222.333-44',
-      cidade: 'São Paulo / SP',
-      veiculos: 2,
-      status: 'Ativo'
-    },
-    {
-      id: 2,
-      nome: 'Transportadora Veloz',
-      documento: '12.345.678/0001-90',
-      cidade: 'Guarulhos / SP',
-      veiculos: 12,
-      status: 'Ativo'
+  useEffect(() => {
+    Listar_clientes().then((dados) => {
+      setClientes(dados)
+    })
+  })
+
+  const [nome_cliente, setNome_cliente] = useState('')
+  const [email_cliente, setEmail_cliente] = useState('')
+  const [senha_cliente, setSenha_cliente] = useState('')
+  const [erro, setErro] = useState<string | null>(null)
+
+  const LidarCadastro = async (event: React.FormEvent): Promise<void> => {
+    event.preventDefault()
+    setErro(null)
+
+    if(!nome_cliente.trim() || !email_cliente.trim() || !senha_cliente.trim()) {
+      setErro('Por favor, preencha todos os campos.')
+      setTimeout(() => setErro(null), 3000)
     }
-  ]
+  }
 
   return (
     <div className="tela-inteira">
@@ -72,7 +65,6 @@ export default function Clientes() {
             <section className="sessao-lista">
               <div className="barra-filtro">
                 <input
-                  type="text"
                   placeholder="Buscar por nome ou documento..."
                   value={busca}
                   onChange={(e) => setBusca(e.target.value)}
@@ -84,30 +76,15 @@ export default function Clientes() {
                 <table className="tabela-clientes">
                   <thead>
                     <tr>
-                      <th>NOME / RAZÃO SOCIAL</th>
-                      <th>CPF / CNPJ</th>
-                      <th>CIDADE</th>
-                      <th>VEÍCULOS</th>
-                      <th>STATUS</th>
-                      <th className="txt-dir">AÇÕES</th>
+                      <th>Nome</th>
+                      <th>Email</th>
                     </tr>
                   </thead>
                   <tbody>
                     {clientes.map((c) => (
-                      <tr key={c.id}>
-                        <td>
-                          <strong>{c.nome}</strong>
-                        </td>
-                        <td>{c.documento}</td>
-                        <td>{c.cidade}</td>
-                        <td className="txt-destaque">{c.veiculos} unidades</td>
-                        <td>
-                          <span className={`tag-status ${c.status.toLowerCase()}`}>{c.status}</span>
-                        </td>
-                        <td className="txt-dir">
-                          <button className="btn-mini">✏️</button>
-                          <button className="btn-mini del">🗑️</button>
-                        </td>
+                      <tr key={c.id_usuario}>
+                        <td>{c.nome_usuario}</td>
+                        <td>{c.email_usuario}</td>
                       </tr>
                     ))}
                   </tbody>

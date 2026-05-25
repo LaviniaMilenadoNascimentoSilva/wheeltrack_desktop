@@ -1,6 +1,6 @@
-const URL_BASE = 'http://localhost:8081/api/funcionario'
+const URL_BASE = 'http://localhost:8081/api/usuario'
 
-export async function Listar_funcionarios(): Promise<any> {
+export async function Listar_clientes(): Promise<any> {
   try {
     const resposta = await fetch(`${URL_BASE}`, {
       method: 'GET',
@@ -13,7 +13,7 @@ export async function Listar_funcionarios(): Promise<any> {
     }
     return await resposta.json()
   } catch (error) {
-    console.error('Erro ao buscar funcionarios:', error)
+    console.error('Erro ao buscar clientes: ', error)
     return []
   }
 }

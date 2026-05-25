@@ -2,42 +2,33 @@ import { useState } from 'react'
 //import { Link, useNavigate } from 'react-router-dom'
 import MenuLateral from './menuLateral'
 import './assets/css/inicio.css' // importa o arquivo de estilos
-
-const cards = [
-  { icone: '👥', numero: 24, texto: 'Funcionários' },
-  { icone: '💼', numero: 138, texto: 'Clientes' },
-  { icone: '🚗', numero: 312, texto: 'Veículos' },
-  { icone: '🛡️', numero: 47, texto: 'Blindagens Ativas' }
-]
-const modulos = [
-  {
-    icone: '👥',
-    nome: 'Funcionários',
-    detalhe: 'Cadastro e gestão de colaboradores',
-    resumo: '24 funcionários cadastrados'
-  },
-  {
-    icone: '💼',
-    nome: 'Clientes',
-    detalhe: 'Clientes e primeiro veículo vinculado',
-    resumo: '138 clientes ativos'
-  },
-  {
-    icone: '🚗',
-    nome: 'Veículos',
-    detalhe: 'Ano, placa, cor, chassi e Renavam',
-    resumo: '312 veículos no sistema'
-  },
-  {
-    icone: '🛡️',
-    nome: 'Blindagem & Manutenção',
-    detalhe: 'Etapas de blindagem e manutenção veicular',
-    resumo: '47 em andamento · 8 OS abertas'
-  }
-]
+import { Listar_funcionarios } from './services/funcionario_api'
+import { useEffect } from 'react'
+import { Listar_clientes } from './services/clientes_api'
+import { Listar_veiculos } from './services/veiculos_api'
+import { Listar_blindagens } from './services/blindagem_api'
 
 export default function Inicio() {
   const [menuSelecionado, setMenuSelecionado] = useState('Início')
+  const [funcionarios, setFuncionarios] = useState<any[]>([])
+  const [clientes, setClientes] = useState<any[]>([])
+  const [veiculos, setVeiculos] = useState<any[]>([])
+  const [blindagens, setBlindagens] = useState<any[]>([])
+
+  useEffect(() => {
+    Listar_funcionarios().then((dados) => {
+      setFuncionarios(dados)
+    })
+    Listar_clientes().then((dados) => {
+      setClientes(dados)
+    })
+    Listar_veiculos().then((dados) => {
+      setVeiculos(dados)
+    })
+    Listar_blindagens().then((dados) => {
+      setBlindagens(dados)
+    })
+  }, [])
   return (
     <div className="tela-inteira">
       <MenuLateral />
@@ -67,27 +58,64 @@ export default function Inicio() {
 
           <div className="grid-stats">
             {/* 4 cards com números grandes */}
-            {cards.map((card) => (
-              <div key={card.texto} className="card-stat">
-                <div className="card-stat-icone">{card.icone}</div>
-                <div className="card-stat-numero">{card.numero}</div>
-                <div className="card-stat-texto">{card.texto}</div>
-              </div>
-            ))}
+            <div className="card-stat">
+              <div className="card-stat-icone">👥</div>
+              <div className="card-stat-numero">{funcionarios.length}</div>
+              <div className="card-stat-texto">Funcionários</div>
+            </div>
+            <div className="card-stat">
+              <div className="card-stat-icone">💼</div>
+              <div className="card-stat-numero">{clientes.length}</div>
+              <div className="card-stat-texto">Clientes</div>
+            </div>
+            <div className="card-stat">
+              <div className="card-stat-icone">🚗</div>
+              <div className="card-stat-numero">{veiculos.length}</div>
+              <div className="card-stat-texto">Veículos</div>
+            </div>
+            <div className="card-stat">
+              <div className="card-stat-icone">🛡️</div>
+              <div className="card-stat-numero">{blindagens.length}</div>
+              <div className="card-stat-texto">Blindagens</div>
+            </div>
           </div>
 
           <div className="secao-titulo">Ambientes do Sistema</div>
           <div className="grid-modulos">
-            {modulos.map((mod) => (
-              <div key={mod.nome} className="card-modulo">
-                <div className="card-modulo-icone">{mod.icone}</div>
-                <div>
-                  <div className="card-modulo-nome">{mod.nome}</div>
-                  <div className="card-modulo-detalhe">{mod.detalhe}</div>
-                  <div className="card-modulo-resumo">{mod.resumo}</div>
+            <div className="card-modulo">
+              <div className="card-modulo-icone">👥</div>
+              <div>
+                <div className="card-modulo-nome">Funcionários</div>
+                <div className="card-modulo-detalhe">Cadastro e gestão de colaboradores</div>
+                <div className="card-modulo-resumo">
+                  {funcionarios.length} funcionários cadastrados
                 </div>
               </div>
-            ))}
+            </div>
+            <div className="card-modulo">
+              <div className="card-modulo-icone">💼</div>
+              <div>
+                <div className="card-modulo-nome">Clientes</div>
+                <div className="card-modulo-detalhe">Cadastro e gestão de clientes</div>
+                <div className="card-modulo-resumo">{clientes.length} clientes cadastrados</div>
+              </div>
+            </div>
+            <div className="card-modulo">
+              <div className="card-modulo-icone">🚗</div>
+              <div>
+                <div className="card-modulo-nome">Veículos</div>
+                <div className="card-modulo-detalhe">Ano, placa, cor, chassi e Renavam</div>
+                <div className="card-modulo-resumo">{veiculos.length} veículos cadastrados</div>
+              </div>
+            </div>
+            <div className="card-modulo">
+              <div className="card-modulo-icone">🛡️</div>
+              <div>
+                <div className="card-modulo-nome">Blindagens</div>
+                <div className="card-modulo-detalhe">Etapas de blindagem e manutenção veicular</div>
+                <div className="card-modulo-resumo">{blindagens.length} blindagens cadastradas</div>
+              </div>
+            </div>
           </div>
         </div>
         {/* fim do conteúdo */}

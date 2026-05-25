@@ -82,3 +82,29 @@ export async function Funcionario_cadastro(
   }
   return await resposta.json()
 }
+
+export async function Cadastrar_cliente(
+  nome_usuario: string,
+  email_usuario: string,
+  senha_usuario: string
+): Promise<any> {
+  const resposta = await fetch(`${URL_BASE}/cadastro/cliente`, {
+    method: 'POST',
+    headers: {
+      'content-type': 'application/json'
+    },
+    body: JSON.stringify({
+      nome_usuario: nome_usuario,
+      email_usuario: email_usuario,
+      senha_usuario: senha_usuario
+    })
+  })
+  if (!resposta.ok) {
+    const dadosErro = await resposta.json().catch(() => null)
+    if (dadosErro) {
+      throw new Error(`Erro no cadastro do cliente: ${dadosErro.mensagem || 'Erro desconhecido'}`)
+    }
+    throw new Error(`Erro no servidor: ${resposta.status}`)
+  }
+  return await resposta.json()
+}

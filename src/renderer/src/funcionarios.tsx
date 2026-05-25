@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import './assets/css/funcionarios.css' // Importação vital para o estilo funcionar
 import MenuLateral from './menuLateral'
-import { Listar } from './services/funcionario_api'
+import { Listar_funcionarios } from './services/funcionario_api'
 import { Funcionario_cadastro } from './services/Adm_api'
 
 export default function Funcionarios() {
@@ -10,7 +10,7 @@ export default function Funcionarios() {
   const [funcionarios, setFuncionarios] = useState<any[]>([])
 
   useEffect(() => {
-    Listar().then((dados) => {
+    Listar_funcionarios().then((dados) => {
       setFuncionarios(dados)
     })
   }, [])
