@@ -52,3 +52,33 @@ export async function cadastro(
   }
   return await resposta.json()
 }
+
+export async function Funcionario_cadastro(
+  nome_funcionario: string,
+  email: string,
+  cargo: string,
+  senha_funcionario: string
+): Promise<any> {
+  const resposta = await fetch(`${URL_BASE}/cadastro/funcionario`, {
+    method: 'POST',
+    headers: {
+      'content-type': 'application/json'
+    },
+    body: JSON.stringify({
+      nome_funcionario: nome_funcionario,
+      email: email,
+      cargo: cargo,
+      senha_funcionario: senha_funcionario
+    })
+  })
+  if (!resposta.ok) {
+    const dadosErro = await resposta.json().catch(() => null)
+    if (dadosErro) {
+      throw new Error(
+        `Erro no cadastro do funcionário: ${dadosErro.mensagem || 'Erros desconhecido'}`
+      )
+    }
+    throw new Error(`Erro no servidor: ${resposta.status}`)
+  }
+  return await resposta.json()
+}

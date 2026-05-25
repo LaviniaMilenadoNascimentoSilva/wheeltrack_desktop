@@ -1,7 +1,8 @@
 import { app, shell, BrowserWindow, ipcMain } from 'electron'
 import { join } from 'path'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
-import icon from '../../resources/icon.png?asset'
+
+// O import icon antigo foi removido para evitar erros no build!
 
 function createWindow(): void {
   // Create the browser window.
@@ -10,7 +11,13 @@ function createWindow(): void {
     height: 670,
     show: false,
     autoHideMenuBar: true,
-    ...(process.platform === 'linux' ? { icon } : {}),
+
+    // Configura o ícone padrão para o Windows buscando direto na pasta recursos
+    icon: join(__dirname, '../../resources/wheeltrack.ico'),
+
+    // Mantém a compatibilidade caso rode em Linux
+    ...(process.platform === 'linux' ? { icon: join(__dirname, '../../resources/icon.png') } : {}),
+
     webPreferences: {
       preload: join(__dirname, '../preload/index.js'),
       sandbox: false
@@ -69,6 +76,3 @@ app.on('window-all-closed', () => {
     app.quit()
   }
 })
-
-// In this file you can include the rest of your app's specific main process
-// code. You can also put them in separate files and require them here.
