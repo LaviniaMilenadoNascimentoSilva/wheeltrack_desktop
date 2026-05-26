@@ -1,29 +1,35 @@
 .pagina-container {
   padding: 32px;
   background-color: #f1f5f9;
-  min-height: 100vh;
+  height: 100vh;          
+  box-sizing: border-box; 
+  display: flex;
+  flex-direction: column;
   font-family: 'Inter', sans-serif;
+  overflow: hidden;      
 }
 .cabecalho-clientes {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 30px;
+  flex-shrink: 0;
 }
 .titulo-secao { 
-    font-size: 26px; 
-    color: #0f172a; 
-    margin: 0; 
+  font-size: 26px; 
+  color: #0f172a; 
+  margin: 0; 
 }
 .subtitulo-secao { 
-    color: #64748b; 
-    font-size: 14px;
- }
-.abas-navegacao { /* Navegação de Abas */
+  color: #64748b; 
+  font-size: 14px;
+}
+.abas-navegacao {
   display: flex;
   gap: 24px;
   border-bottom: 2px solid #e2e8f0;
   margin-bottom: 24px;
+  flex-shrink: 0;          /* ← abas não encolhem */
 }
 .aba-link {
   padding: 12px 4px;
@@ -36,19 +42,23 @@
   transition: all 0.2s;
 }
 .aba-link.ativa {
-  color: #3b6d11; /* Cor da WheelTrack */
+  color: #3b6d11;
   border-bottom-color: #3b6d11;
 }
-.tabela-wrapper { /* Tabela e Filtros */
+.tabela-wrapper {
   background: #fff;
   border-radius: 12px;
   border: 1px solid #e2e8f0;
-  overflow: hidden;
+  overflow: auto;          /* ← scroll interno se necessário */
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  flex: 1;                 /* ← expande para preencher o restante da página */
+  display: flex;
+  flex-direction: column;
 }
 .tabela-clientes {
   width: 100%;
   border-collapse: collapse;
+  flex: 1;                 /* ← tabela cresce dentro do wrapper */
 }
 .tabela-clientes th {
   background: #f8fafc;
@@ -58,6 +68,9 @@
   text-transform: uppercase;
   color: #94a3b8;
   letter-spacing: 0.05em;
+  position: sticky;       /* ← cabeçalho fixo ao rolar */
+  top: 0;
+  z-index: 1;
 }
 .tabela-clientes td {
   padding: 16px;
@@ -66,21 +79,21 @@
   color: #1e293b;
 }
 .txt-destaque { 
-    color: #3b6d11; 
-    font-weight: 600; 
+  color: #3b6d11; 
+  font-weight: 600; 
 }
 .txt-dir { 
-    text-align: right; 
+  text-align: right; 
 }
-.tag-status { /* Status e Botões */
+.tag-status {
   padding: 4px 10px;
   border-radius: 6px;
   font-size: 12px;
   font-weight: 700;
 }
 .tag-status.ativo { 
-    background: #dcfce7; 
-    color: #166534; 
+  background: #dcfce7; 
+  color: #166534; 
 }
 .btn-novo {
   background: #3b6d11;
@@ -99,11 +112,13 @@
   cursor: pointer;
   margin-left: 4px;
 }
-.card-form { /* Formulário */
+.card-form {
   background: #fff;
   padding: 30px;
   border-radius: 12px;
   border: 1px solid #e2e8f0;
+  flex: 1;                 /* ← formulário também ocupa o espaço todo */
+  overflow: auto;
 }
 .grid-form {
   display: grid;
@@ -111,14 +126,14 @@
   gap: 24px;
 }
 .campo-grupo { 
-    display: flex; 
-    flex-direction: column; 
-    gap: 8px; 
+  display: flex; 
+  flex-direction: column; 
+  gap: 8px; 
 }
 .campo-grupo label { 
-    font-size: 13px; 
-    font-weight: 600; 
-    color: #475569; 
+  font-size: 13px; 
+  font-weight: 600; 
+  color: #475569; 
 }
 .campo-grupo input {
   padding: 12px;

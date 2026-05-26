@@ -1,4 +1,4 @@
-.pagina { 
+.pagina {
   padding: 28px 32px;
   background: #f5f5f3;
   min-height: 100vh;
@@ -7,14 +7,14 @@
 .cabecalho { /* CABEÇALHO E NAVEGAÇÃO */
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   margin-bottom: 24px;
 }
 .cabecalho-titulo {
   font-size: 22px;
   font-weight: 700;
   color: #111;
-  margin: 0;
+  margin: 0 0 4px 0;
 }
 .cabecalho-subtitulo {
   font-size: 13px;
@@ -63,29 +63,42 @@
   align-items: center;
   justify-content: center;
 }
-.card-total-icone.verde { background: #eaf3de; }
+.card-total-icone.verde   { background: #eaf3de; }
 .card-total-icone.vermelho { background: #FCEBEB; }
 .card-total-numero {
   font-size: 30px;
   font-weight: 700;
   color: #111;
+  line-height: 1;
+  margin-bottom: 4px;
 }
-.barra-busca-row { /* TABELA E BUSCA */
-  display: flex;
-  margin-bottom: 16px;
-}
-.input-busca {
-  flex: 1;
-  padding: 10px 16px;
-  border: 1px solid #e5e5e5;
-  border-radius: 8px;
+.card-total-label {
   font-size: 13px;
+  color: #888;
 }
 .tabela-container {
   background: #fff;
   border-radius: 12px;
   border: 0.5px solid #e5e5e5;
   overflow: hidden;
+}
+.barra-busca-row {
+  display: flex;
+  padding: 12px 16px;
+  border-bottom: 1px solid #f0f0f0;
+}
+.input-busca {
+  flex: 1;
+  padding: 9px 14px;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  font-size: 13px;
+  background: #fafafa;
+  outline: none;
+}
+.input-busca:focus {
+  border-color: #ccc;
+  background: #fff;
 }
 .tabela {
   width: 100%;
@@ -94,15 +107,22 @@
 }
 .tabela th {
   text-align: left;
-  padding: 12px 16px;
+  padding: 10px 16px;
   background: #fafafa;
-  color: #999;
+  color: #aaa;
   font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
   border-bottom: 1px solid #f0f0f0;
 }
 .tabela td {
   padding: 14px 16px;
   border-bottom: 1px solid #f5f5f5;
+  color: #222;
+}
+.tabela tr:last-child td {
+  border-bottom: none;
 }
 .btn-primario { /* BOTÕES */
   background: #e84d2e;
@@ -110,6 +130,7 @@
   border: none;
   border-radius: 8px;
   padding: 10px 18px;
+  font-size: 13px;
   font-weight: 600;
   cursor: pointer;
 }
@@ -126,5 +147,5 @@
   font-size: 11px;
   font-weight: 600;
 }
-.badge-ativo { background: #eaf3de; color: #3B6D11; }
+.badge-ativo   { background: #eaf3de; color: #3B6D11; }
 .badge-inativo { background: #FCEBEB; color: #A32D2D; }
