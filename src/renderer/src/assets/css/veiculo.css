@@ -100,6 +100,8 @@
     background: #fafafa; 
     padding: 12px 15px; 
     color: #999; 
+    gap: 10px;
+    
 }
 .tabela-v td { 
     padding: 15px; 

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import './assets/css/clientes.css'
 import MenuLateral from './menuLateral'
 import { Listar_clientes } from './services/clientes_api'
+import { Cadastrar_cliente } from './services/Adm_api'
 
 export default function Clientes() {
   const [abaAtiva, setAbaAtiva] = useState<'lista' | 'cadastro'>('lista')
@@ -23,8 +24,24 @@ export default function Clientes() {
     event.preventDefault()
     setErro(null)
 
-    if(!nome_cliente.trim() || !email_cliente.trim() || !senha_cliente.trim()) {
+    if (!nome_cliente.trim() || !email_cliente.trim() || !senha_cliente.trim()) {
       setErro('Por favor, preencha todos os campos.')
+      setTimeout(() => setErro(null), 3000)
+      return
+    }
+    try {
+      const resposta = await Cadastrar_cliente(nome_cliente, email_cliente, senha_cliente)
+      console.log('Sucesso ao cadastrar: ', resposta)
+      if (resposta.sucesso) {
+        setErro('Cadastro bem-sucedido!')
+        setTimeout(() => setErro(null), 3000)
+      } else {
+        setErro(resposta.mensagem)
+        setTimeout(() => setErro(null), 3000)
+      }
+    } catch (error) {
+      console.error('Erro ao cadastrar: ', error)
+      setErro('Erro ao cadastrar cliente.')
       setTimeout(() => setErro(null), 3000)
     }
   }
@@ -93,24 +110,36 @@ export default function Clientes() {
             </section>
           ) : (
             <section className="sessao-cadastro">
-              <div className="card-form">
+              {erro && <div className="mensagem_erro">{erro}</div>}
+              <form className="card-form" onSubmit={LidarCadastro}>
                 <h3 className="titulo-card">Dados Cadastrais</h3>
                 <div className="grid-form">
                   <div className="campo-grupo">
-                    <label>Nome Completo ou Razão Social</label>
-                    <input type="text" placeholder="Digite o nome" />
-                  </div>
-                  <div className="campo-grupo">
-                    <label>CPF ou CNPJ</label>
-                    <input type="text" placeholder="00.000.000/0000-00" />
+                    <label>Nome Completo</label>
+                    <input
+                      type="text"
+                      placeholder="Digite o nome do cliente"
+                      value={nome_cliente}
+                      onChange={(e) => setNome_cliente(e.target.value)}
+                    />
                   </div>
                   <div className="campo-grupo">
                     <label>E-mail de Contato</label>
-                    <input type="email" placeholder="cliente@email.com" />
+                    <input
+                      type="email"
+                      placeholder="cliente@email.com"
+                      value={email_cliente}
+                      onChange={(e) => setEmail_cliente(e.target.value)}
+                    />
                   </div>
                   <div className="campo-grupo">
-                    <label>Telefone / WhatsApp</label>
-                    <input type="text" placeholder="(00) 00000-0000" />
+                    <label>Senha do cliente</label>
+                    <input
+                      type="password"
+                      placeholder="Digite a senha do cliente"
+                      value={senha_cliente}
+                      onChange={(e) => setSenha_cliente(e.target.value)}
+                    />
                   </div>
                 </div>
 
@@ -118,9 +147,11 @@ export default function Clientes() {
                   <button className="btn-cancelar" onClick={() => setAbaAtiva('lista')}>
                     Cancelar
                   </button>
-                  <button className="btn-confirmar">Salvar Cliente</button>
+                  <button className="btn-confirmar" type="submit">
+                    Salvar Cliente
+                  </button>
                 </div>
-              </div>
+              </form>
             </section>
           )}
         </main>

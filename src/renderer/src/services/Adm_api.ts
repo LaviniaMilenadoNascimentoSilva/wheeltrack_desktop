@@ -108,3 +108,33 @@ export async function Cadastrar_cliente(
   }
   return await resposta.json()
 }
+
+export async function Cadastrar_veiculo(
+  marca: string,
+  modelo: string,
+  placa: string,
+  ano_veiculo: number,
+  id_usuario: string
+): Promise<any> {
+  const resposta = await fetch(`${URL_BASE}/cadastro/veiculo`, {
+    method: 'POST',
+    headers: {
+      'content-type': 'application/json'
+    },
+    body: JSON.stringify({
+      marca: marca,
+      modelo: modelo,
+      ano_veiculo: ano_veiculo,
+      placa: placa,
+      usuario: id_usuario ? { id_usuario: parseInt(id_usuario) } : null
+    })
+  })
+  if (!resposta.ok) {
+    const dadosErro = await resposta.json().catch(() => null)
+    if (dadosErro) {
+      throw new Error(`Erro no cadastro do veículo: ${dadosErro.mensagem || 'Erro desconhecido'}`)
+    }
+    throw new Error(`Erro no servidor: ${resposta.status}`)
+  }
+  return await resposta.json()
+}
