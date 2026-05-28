@@ -1,4 +1,4 @@
-const URL_BASE = 'http://localhost:8081/api/funcionario'
+const URL_BASE = 'http://localhost:8081/funcionario'
 
 export async function Listar_funcionarios(): Promise<any> {
   try {

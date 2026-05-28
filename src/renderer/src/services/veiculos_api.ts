@@ -1,4 +1,4 @@
-const URL_BASE = 'http://localhost:8081/api/veiculo'
+const URL_BASE = 'http://localhost:8081/veiculo'
 
 export async function Listar_veiculos(): Promise<any> {
   try {

@@ -85,7 +85,7 @@ export default function Veiculos() {
         {abaAtiva === 'lista' ? (
           <>
             <div className="grid-cards-veiculos">
-              {veiculos.slice(0, 4).map((veiculo) => (
+              {veiculos.slice(0, 3).map((veiculo) => (
                 <div className="card-v" key={veiculo.placa}>
                   <div className="card-v-header">
                     <div>

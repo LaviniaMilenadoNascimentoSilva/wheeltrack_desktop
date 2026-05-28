@@ -134,42 +134,52 @@ export default function Funcionarios() {
           <div className="formulario-simples">
             {erro && <div className="mensagem_erro">{erro}</div>}
             {/* Conteúdo do formulário viria aqui */}
-            <form onSubmit={lidarCadastro}>
-              <h3>Nome</h3>
-              <input
-                type="text"
-                placeholder="Nome completo"
-                value={nome_funcionario}
-                onChange={(e) => setNome_funcionario(e.target.value)}
-              />
-              <h3>Email</h3>
-              <input
-                type="email"
-                placeholder="email@whelltrack.com"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-              <h3>Cargo</h3>
-              <input
-                type="text"
-                placeholder="Cargo"
-                value={cargo}
-                onChange={(e) => setCargo(e.target.value)}
-              />
-              <h3>Senha</h3>
-              <input
-                type="password"
-                placeholder="Senha"
-                value={senha_funcionario}
-                onChange={(e) => setSenha_funcionario(e.target.value)}
-              />
+            <form className="card-form" onSubmit={lidarCadastro}>
+              <div className="grid-form">
+                <div className="campo-grupo">
+                  <h3>Nome</h3>
+                  <input
+                    type="text"
+                    placeholder="Nome completo"
+                    value={nome_funcionario}
+                    onChange={(e) => setNome_funcionario(e.target.value)}
+                  />
+                </div>
+                <div className="campo-grupo">
+                  <h3>Email</h3>
+                  <input
+                    type="email"
+                    placeholder="email@whelltrack.com"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                  />
+                </div>
+                <div className="campo-grupo">
+                  <h3>Cargo</h3>
+                  <input
+                    type="text"
+                    placeholder="Cargo"
+                    value={cargo}
+                    onChange={(e) => setCargo(e.target.value)}
+                  />
+                </div>
+                <div className="campo-grupo">
+                  <h3>Senha</h3>
+                  <input
+                    type="password"
+                    placeholder="Senha"
+                    value={senha_funcionario}
+                    onChange={(e) => setSenha_funcionario(e.target.value)}
+                  />
+                </div>
+              </div>
+              <button className="btn-primario" onClick={() => setAba('lista')}>
+                Voltar
+              </button>
               <button type="submit" className="btn-primario">
                 Cadastrar
               </button>
             </form>
-            <button className="btn-primario" onClick={() => setAba('lista')}>
-              Voltar
-            </button>
           </div>
         )}
       </div>
