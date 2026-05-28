@@ -17,3 +17,9 @@ export async function Listar_funcionarios(): Promise<any> {
     return []
   }
 }
+
+/*export async function Cadastrar_usuario(nome_usuario: string, senha_usuario: string, email_usuario: string): Promise<any> {
+  try {
+    const resposta = await fetch(`${URL_BASE}/`)
+  }
+}*/

@@ -7,6 +7,7 @@
   flex-direction: column;
   font-family: 'Inter', sans-serif;
   overflow: hidden;      
+  width: 100%;
 }
 .cabecalho-clientes {
   display: flex;
@@ -146,4 +147,10 @@
   display: flex;
   justify-content: flex-end;
   gap: 16px;
+}
+.barra-filtros {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin: 20px;
 }

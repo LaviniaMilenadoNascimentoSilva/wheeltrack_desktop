@@ -80,7 +80,7 @@ export default function Clientes() {
         <main className="conteudo-dinamico">
           {abaAtiva === 'lista' ? (
             <section className="sessao-lista">
-              <div className="barra-filtro">
+              <div className="barra-busca-row">
                 <input
                   placeholder="Buscar por nome ou documento..."
                   value={busca}

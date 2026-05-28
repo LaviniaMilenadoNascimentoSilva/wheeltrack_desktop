@@ -70,12 +70,12 @@ export default function MenuLateral() {
           >
             Configurações
           </button>
-          <button
+          {/*<button
             onClick={() => navigate('/cadastro')}
             className={`menu-botao ${rotaAtiva === '/cadastro' ? 'ativo' : ''}`}
           >
             Cadastro
-          </button>
+          </button>*/}
         </div>
 
         <div className="menu-usuario">

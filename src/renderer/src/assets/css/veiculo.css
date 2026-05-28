@@ -3,6 +3,7 @@
     background: #f5f5f3; 
     min-height: 100vh; 
     font-family: sans-serif; 
+    width: 100%;
 }
 .topo-flex { 
     display: flex; 

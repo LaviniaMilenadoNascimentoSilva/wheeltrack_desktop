@@ -3,6 +3,7 @@
   background-color: #f8fafc;
   min-height: 100vh;
   font-family: 'Inter', sans-serif;
+  width: 100%;
 }
 .docs-header { /* CABEÇALHO */
   display: flex;

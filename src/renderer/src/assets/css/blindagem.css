@@ -3,6 +3,7 @@
   background: #f8fafc;
   min-height: 100vh;
   font-family: 'Inter', sans-serif;
+  width: 100%;
 }
 .blindagem-header { /* --- CABEÇALHO --- */
   display: flex;

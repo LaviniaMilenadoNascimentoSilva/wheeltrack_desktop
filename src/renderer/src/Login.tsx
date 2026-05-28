@@ -24,7 +24,7 @@ export default function Login() {
       const resposta = await login(email, senha)
       console.log('Sucesso ao logar:', resposta)
       if (resposta.sucesso) {
-        alert('Login bem-sucedido!')
+        setErro('Login bem-sucedido!')
         navigate('/login-ambiente')
       } else {
         setErro(resposta.mensagem)
