@@ -9,6 +9,8 @@ body {
   background-size: cover;
   user-select: none;
   background-color: #087ea4;
+  margin: 0;
+  padding: 0;
 }
 
 code {

@@ -1,5 +1,6 @@
 import { useNavigate, useLocation } from 'react-router-dom'
 import './assets/css/inicio.css' // importa o arquivo de estilos
+import logo from './assets/imagens/wheeltrack.png'
 
 export default function MenuLateral() {
   const navigate = useNavigate()
@@ -10,7 +11,9 @@ export default function MenuLateral() {
     <div>
       <div className="menu-lateral">
         <div className="menu-logo">
-          <div className="menu-logo-icone">🔰</div>
+          <div>
+            <img src={logo} className="logo_inicio" />
+          </div>
           <span className="menu-logo-texto">
             Wheel<span>Track</span>
           </span>

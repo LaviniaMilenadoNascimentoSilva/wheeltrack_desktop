@@ -25,7 +25,10 @@ export default function Login() {
       console.log('Sucesso ao logar:', resposta)
       if (resposta.sucesso) {
         setErro('Login bem-sucedido!')
-        navigate('/login-ambiente')
+        setTimeout(() => {
+          setErro(null)
+          navigate('/login-ambiente')
+        }, 2000)
       } else {
         setErro(resposta.mensagem)
         setTimeout(() => setErro(null), 4000)

@@ -31,7 +31,7 @@
 .menu-logo-texto {
   color: #fff;
   font-weight: 700;
-  font-size: 15px;
+  font-size: 25px;
 }
 .menu-logo-texto span {
   color: #e84d2e;       /* deixa "Track" em vermelho */
@@ -242,4 +242,9 @@
   color: #fff;
   font-size: 11px;
   cursor: pointer;
+}
+.logo_inicio {
+  width: 32px;
+  height: 32px;
+  /*margin-left: 8px;*/
 }

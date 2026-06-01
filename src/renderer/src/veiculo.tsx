@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import './assets/css/veiculo.css'
 import MenuLateral from './menuLateral'
-import { Listar_veiculos } from './services/veiculos_api'
+import { Listar_veiculos, Deletar_veiculo } from './services/veiculos_api'
 import { Cadastrar_veiculo } from './services/Adm_api'
 import { Listar_clientes } from './services/clientes_api'
 
@@ -67,6 +67,21 @@ export default function Veiculos() {
     }
   }
 
+  const lidarDeletar = async (placa: string): Promise<void> => {
+    const confirmar = window.confirm(`Tem certeza que deseja deletar o veículo de placa ${placa}?`)
+    if (confirmar) {
+      const sucesso = await Deletar_veiculo(placa)
+      if (sucesso) {
+        setErro('Veículo deletado com sucesso!')
+        setTimeout(() => setErro(null), 2000)
+        setAbaAtiva('lista')
+      } else {
+        setErro('Erro ao deletar o veiculo.')
+        setTimeout(() => setErro(null), 2000)
+      }
+    }
+  }
+
   return (
     <div className="tela-inteira">
       {' '}
@@ -101,6 +116,7 @@ export default function Veiculos() {
             <div className="tabela-container-v">
               {' '}
               {/* TABELA DE LISTAGEM */}
+              {erro && <div className="mensagem_erro">{erro}</div>}
               <div className="busca-v">
                 <input type="text" placeholder="🔍 Buscar por placa, chassi ou cliente..." />
               </div>
@@ -112,6 +128,8 @@ export default function Veiculos() {
                     <th>MODELO</th>
                     <th>ANO</th>
                     <th>CLIENTE</th>
+                    <th>Situação</th>
+                    <th>Ações</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -128,6 +146,7 @@ export default function Veiculos() {
                       <td className="acoes-v">
                         <button>✏️</button>
                         <button>👁️</button>
+                        <button onClick={() => lidarDeletar(veiculo.placa)}>🗑️</button>
                       </td>
                     </tr>
                   ))}
