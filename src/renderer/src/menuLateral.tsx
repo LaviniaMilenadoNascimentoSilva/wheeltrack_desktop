@@ -14,9 +14,6 @@ export default function MenuLateral() {
           <div>
             <img src={logo} className="logo_inicio" />
           </div>
-          <span className="menu-logo-texto">
-            Wheel<span>Track</span>
-          </span>
         </div>
 
         <div className="menu-empresa">

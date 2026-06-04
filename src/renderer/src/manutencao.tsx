@@ -16,7 +16,7 @@ export default function Manutencao() {
             <h1 className="titulo-pg">Etapas de Manutenção</h1>
             <p className="subtitulo-pg">Acompanhe as manutenções em andamento</p>
           </div>
-          <button className="btn-laranja" onClick={() => setAbaAtiva('nova-os')}>
+          <button className="btn-azul" onClick={() => setAbaAtiva('nova-os')}>
             + Nova OS Manutenção
           </button>
         </header>
@@ -73,12 +73,12 @@ export default function Manutencao() {
                     <td>Honda HR-V · DEF-4G56</td>
                     <td>Preventiva</td>
                     <td>
-                      <span className="tag-etapa v-03">03 — Execução</span>
+                      <span className="badge-v blindagem">03 — Execução</span>
                     </td>
                     <td>Marcos Rocha</td>
                     <td>20/05/2026</td>
                     <td>
-                      <span className="badge-status andamento">Em Andamento</span>
+                      <span className="badge-v blindagem">Em Andamento</span>
                     </td>
                   </tr>
                   <tr>
@@ -144,7 +144,7 @@ export default function Manutencao() {
               <button className="btn-cancelar" onClick={() => setAbaAtiva('etapas')}>
                 Cancelar
               </button>
-              <button className="btn-salvar">✓ Abrir OS de Manutenção</button>
+              <button className="btn-salvar-azul">✓ Abrir OS de Manutenção</button>
             </div>
           </div>
         )}
@@ -155,7 +155,7 @@ export default function Manutencao() {
 // Componente Interno para os Cards de Etapa
 const CardEtapa: React.FC<any> = ({ num, titulo, desc, ativa, destaque }) => (
   <div className={`card-etapa-mt ${ativa ? 'ativa' : ''} ${destaque ? 'destaque' : ''}`}>
-    <div className="mt-numero-circulo">{num}</div>
+    <div className="etapa-numero">{num}</div>
     <h4 className="mt-etapa-titulo">{titulo}</h4>
     <p className="mt-etapa-desc">{desc}</p>
   </div>

@@ -95,9 +95,9 @@
   border-color: #cbd5e1;
 }
 .btn-ambiente.ativo {
-  background: #f0fdf4;
-  border-color: #88b04b;
-  color: #166534;
+  background: #5087f582;
+  border-color: #5087f5;
+  color: #1f57c8;
 }
 .btn-ambiente.ativo .ambiente-icone {
   opacity: 1;
@@ -111,7 +111,7 @@
   padding: 15px;
   border-radius: 8px;
   border: none;
-  background-color: #f04e23; /* Laranja WheelTrack */
+  background-color: #2970ff; /* Laranja WheelTrack */
   color: white;
   font-size: 16px;
   font-weight: 700;
@@ -119,5 +119,5 @@
   transition: background 0.2s;
 }
 .btn-acessar-principal:hover {
-  background-color: #d4411b;
+  background-color: #2970ff;
 }

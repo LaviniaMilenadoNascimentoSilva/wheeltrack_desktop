@@ -38,8 +38,8 @@
   margin-bottom: -1px;
 }
 .aba-ativa {
-  color: #e84d2e;
-  border-bottom-color: #e84d2e;
+  color: #2970ff;
+  border-bottom-color: #2970ff;
   font-weight: 600;
 }
 .grid-3 { /* GRIDS E CARDS */
@@ -128,7 +128,7 @@
   border-bottom: none;
 }
 .btn-primario { /* BOTÕES */
-  background: #e84d2e;
+  background: #2970ff;
   color: #fff;
   border: none;
   border-radius: 8px;

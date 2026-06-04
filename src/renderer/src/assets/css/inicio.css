@@ -10,7 +10,7 @@
 }
 .menu-lateral { /* ----- MENU LATERAL ----- */
   width: 210px;
-  background: #111;     /* fundo escuro */
+  background: #3b3b3b;     /* fundo escuro */
   display: flex;
   flex-direction: column; /* empilha os itens de cima pra baixo */
   height: 100%;
@@ -20,6 +20,7 @@
   border-bottom: 1px solid #2a2a2a;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
 }
 .menu-logo-icone {
@@ -34,7 +35,7 @@
   font-size: 25px;
 }
 .menu-logo-texto span {
-  color: #e84d2e;       /* deixa "Track" em vermelho */
+  color: #2970ff;       /* deixa "Track" em vermelho */
 }
 .menu-empresa {
   margin: 12px 10px;
@@ -69,8 +70,8 @@
   color: #999;
 }
 .menu-botao.ativo { /* Botão quando está selecionado — fica verde */
-  background: #2c3a1f;
-  color: #8cc63f;
+  background: #113377;
+  color: #4d86f7;
 }
 .menu-usuario {
   padding: 12px 14px;
@@ -244,7 +245,6 @@
   cursor: pointer;
 }
 .logo_inicio {
-  width: 32px;
-  height: 32px;
-  /*margin-left: 8px;*/
+  width: 100px;
+  height: 100px;
 }

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import './assets/css/documentos.css'
 import MenuLateral from './menuLateral'
 
@@ -42,8 +42,8 @@ export default function Documentos() {
             <h1 className="docs-titulo">Documentos</h1>
             <p className="docs-subtitulo">Certificados, termos, laudos e relatórios</p>
           </div>
-          <button className="btn-enviar-doc">
-            <span>📤</span> Enviar Documento
+          <button className="btn-azul">
+            <i className="fa fa-file-text-o" aria-hidden="true"></i> Enviar Documento
           </button>
         </header>
         {/* ÁREA DA TABELA */}
@@ -76,7 +76,7 @@ export default function Documentos() {
                     <span className="ícone-arquivo">📄</span> {doc.nome}
                   </td>
                   <td>
-                    <span className={`badge-tipo ${doc.tipo.toLowerCase()}`}>{doc.tipo}</span>
+                    <span className="badge-v blindagem">{doc.tipo}</span>
                   </td>
                   <td>{doc.veiculo}</td>
                   <td>{doc.cliente}</td>
@@ -86,7 +86,7 @@ export default function Documentos() {
                       👁️
                     </button>
                     <button className="btn-doc-acao" title="Download">
-                      📥
+                      <i className="fa fa-upload" aria-hidden="true"></i>
                     </button>
                   </td>
                 </tr>

@@ -92,7 +92,7 @@ export default function Veiculos() {
             <h1 className="titulo-pg">Veículos</h1>
             <p className="subtitulo-pg">Todos os veículos registrados no sistema</p>
           </div>
-          <button className="btn-laranja" onClick={() => setAbaAtiva('cadastro')}>
+          <button className="btn-azul" onClick={() => setAbaAtiva('cadastro')}>
             + Novo Veículo
           </button>
         </header>
@@ -158,7 +158,9 @@ export default function Veiculos() {
           <div className="form-card-v">
             {erro && <div className="mensagem_erro">{erro}</div>}
             <form className="card-form-v" onSubmit={LidarCadastro}>
-              <h3 className="form-secao-titulo">🚗 Dados do Veículo</h3>
+              <h3 className="form-secao-titulo">
+                <i className="fa fa-car" aria-hidden="true"></i> Dados do Veículo
+              </h3>
               <div className="form-grid-v">
                 <div className="campo-v full">
                   <label>MARCA</label>

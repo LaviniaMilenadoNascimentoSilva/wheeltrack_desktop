@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import './assets/css/configuracoes.css'
 import MenuLateral from './menuLateral'
 

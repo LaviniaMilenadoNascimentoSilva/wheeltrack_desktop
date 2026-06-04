@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import './assets/css/loginambiente.css'
 import logo from './assets/imagens/wheeltrack.png' // Verifique o caminho da sua logo
 import { useNavigate } from 'react-router-dom'

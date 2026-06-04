@@ -80,7 +80,9 @@ export default function Funcionarios() {
           <>
             <div className="grid-3">
               <div className="card-total">
-                <div className="card-total-icone verde">👥</div>
+                <div className="card-total-icone verde">
+                  <i className="fa fa-users" aria-hidden="true"></i>
+                </div>
                 <div className="card-total-numero">{funcionarios.length}</div>
                 <div className="card-total-texto">Total</div>
               </div>

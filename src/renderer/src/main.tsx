@@ -5,7 +5,6 @@ import { createRoot } from 'react-dom/client'
 import Login from './Login'
 import LoginAmbiente from './loginambiente'
 import Inicio from './inicio'
-import Cadastro_funcionario from './cadastro_funcionario'
 import Funcionarios from './funcionarios'
 import Clientes from './clientes'
 import Veiculos from './veiculo'
@@ -30,7 +29,6 @@ createRoot(document.getElementById('root')!).render(
         <Route path="/manutencao" element={<Manutencao />} />
         <Route path="/documentos" element={<Documentos />} />
         <Route path="/configuracoes" element={<Configuracoes />} />
-        <Route path="/cadastro_funcionario" element={<Cadastro_funcionario />} />
       </Routes>
     </HashRouter>
   </StrictMode>

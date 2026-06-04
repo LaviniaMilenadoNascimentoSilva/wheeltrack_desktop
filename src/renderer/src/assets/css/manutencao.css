@@ -34,8 +34,8 @@
 .btn-laranja:hover {
   opacity: 0.9;
 }
-.btn-salvar {
-  background-color: #88b04b;
+.btn-salvar-azul {
+  background-color: #2970ff;
   color: white;
   border: none;
   padding: 12px 25px;
@@ -65,11 +65,11 @@
   transition: all 0.3s ease;
 }
 .card-etapa-mt.ativa {
-  border-color: #88b04b;
-  box-shadow: 0 0 0 1px #88b04b;
+  border-color: #2970ff;
+  box-shadow: 0 0 0 1px #2970ff;
 }
 .card-etapa-mt.destaque {
-  border-color: #f04e23;
+  border-color: #2970ff;
 }
 .mt-numero-circulo {
   width: 28px;

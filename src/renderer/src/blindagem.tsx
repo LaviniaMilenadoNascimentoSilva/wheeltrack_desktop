@@ -15,7 +15,7 @@ export default function Blindagem() {
             <h1 className="titulo-secao">Etapas de Blindagem</h1>
             <p className="subtitulo-secao">Acompanhe o progresso das ordens de blindagem</p>
           </div>
-          <button className="btn-nova-os" onClick={() => setAbaAtiva('nova-os')}>
+          <button className="btn-azul" onClick={() => setAbaAtiva('nova-os')}>
             + Nova OS Blindagem
           </button>
         </header>
@@ -84,12 +84,12 @@ export default function Blindagem() {
                     <td>Toyota Corolla · ABC-1D23</td>
                     <td>João P. Almeida</td>
                     <td>
-                      <span className="etapa-tag v-03">03 — Placas</span>
+                      <span className="badge-v blindagem">03 — Placas</span>
                     </td>
                     <td>Carlos Souza</td>
                     <td>30/05/2026</td>
                     <td>
-                      <span className="status-os andamento">Em Andamento</span>
+                      <span className="badge-v blindagem">Em Andamento</span>
                     </td>
                   </tr>
                 </tbody>
@@ -99,7 +99,9 @@ export default function Blindagem() {
         ) : (
           /* FORMULÁRIO DE NOVA OS (Conforme image_a131e6.png) */
           <div className="form-os-card">
-            <h3 className="form-os-titulo">🛡️ Dados da Ordem de Serviço</h3>
+            <h3 className="form-os-titulo">
+              <i className="fa fa-shield" aria-hidden="true"></i> Dados da Ordem de Serviço
+            </h3>
             <div className="form-os-grid">
               <div className="campo-os">
                 <label>CLIENTE</label>

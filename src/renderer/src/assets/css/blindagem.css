@@ -50,7 +50,7 @@
 }
 .barra-preenchida {
   height: 100%;
-  background: #88b04b;
+  background: #2970ff;
   border-radius: 10px;
   transition: width 0.5s ease-in-out;
 }
@@ -68,23 +68,23 @@
   transition: all 0.3s ease;
 }
 .card-etapa.ativa {
-  border-color: #88b04b;
-  box-shadow: 0 0 0 1px #88b04b;
+  border-color: #2970ff;
+  box-shadow: 0 0 0 1px #2970ff;
 }
 .card-etapa.destaque {
-  border-color: #f04e23;
+  border-color: #2970ff;
 }
 .etapa-numero {
   width: 32px;
   height: 32px;
-  background: #f1f5f9;
+  background: #cedefd;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 12px;
   font-weight: bold;
-  color: #3b6d11;
+  color: #174dbb;
   margin-bottom: 12px;
 }
 .etapa-titulo {
@@ -184,7 +184,7 @@
   border-radius: 8px;
   background: #fcfcfc;
   font-size: 14px;
-  outline-color: #88b04b;
+  outline-color: #2970ff;
 }
 .campo-os textarea {
   height: 100px;
@@ -197,7 +197,7 @@
   margin-top: 30px;
 }
 .btn-abrir-os {
-  background: #88b04b;
+  background: #2970ff;
   color: white;
   border: none;
   padding: 12px 25px;

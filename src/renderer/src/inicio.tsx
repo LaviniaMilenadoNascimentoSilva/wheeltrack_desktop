@@ -9,7 +9,7 @@ import { Listar_veiculos } from './services/veiculos_api'
 import { Listar_blindagens } from './services/blindagem_api'
 
 export default function Inicio() {
-  const [menuSelecionado, setMenuSelecionado] = useState('Início')
+  //const [menuSelecionado, setMenuSelecionado] = useState('Início')
   const [funcionarios, setFuncionarios] = useState<any[]>([])
   const [clientes, setClientes] = useState<any[]>([])
   const [veiculos, setVeiculos] = useState<any[]>([])
@@ -38,7 +38,7 @@ export default function Inicio() {
         {/* ── ÁREA PRINCIPAL ── */}
         <div className="topbar">
           <span className="topbar-breadcrumb">
-            🏠 / <strong>{menuSelecionado}</strong>
+            🏠 
           </span>
           <div className="topbar-botoes">
             <button className="topbar-botao">🔔</button>
@@ -59,22 +59,30 @@ export default function Inicio() {
           <div className="grid-stats">
             {/* 4 cards com números grandes */}
             <div className="card-stat">
-              <div className="card-stat-icone">👥</div>
+              <div className="card-stat-icone">
+                <i className="fa fa-users" aria-hidden="true"></i>
+              </div>
               <div className="card-stat-numero">{funcionarios.length}</div>
               <div className="card-stat-texto">Funcionários</div>
             </div>
             <div className="card-stat">
-              <div className="card-stat-icone">💼</div>
+              <div className="card-stat-icone">
+                <i className="fa fa-user" aria-hidden="true"></i>
+              </div>
               <div className="card-stat-numero">{clientes.length}</div>
               <div className="card-stat-texto">Clientes</div>
             </div>
             <div className="card-stat">
-              <div className="card-stat-icone">🚗</div>
+              <div className="card-stat-icone">
+                <i className="fa fa-car" aria-hidden="true"></i>
+              </div>
               <div className="card-stat-numero">{veiculos.length}</div>
               <div className="card-stat-texto">Veículos</div>
             </div>
             <div className="card-stat">
-              <div className="card-stat-icone">🛡️</div>
+              <div className="card-stat-icone">
+                <i className="fa fa-shield" aria-hidden="true"></i>
+              </div>
               <div className="card-stat-numero">{blindagens.length}</div>
               <div className="card-stat-texto">Blindagens</div>
             </div>
@@ -83,7 +91,9 @@ export default function Inicio() {
           <div className="secao-titulo">Ambientes do Sistema</div>
           <div className="grid-modulos">
             <div className="card-modulo">
-              <div className="card-modulo-icone">👥</div>
+              <div className="card-modulo-icone">
+                <i className="fa fa-users" aria-hidden="true"></i>
+              </div>
               <div>
                 <div className="card-modulo-nome">Funcionários</div>
                 <div className="card-modulo-detalhe">Cadastro e gestão de colaboradores</div>
@@ -93,7 +103,9 @@ export default function Inicio() {
               </div>
             </div>
             <div className="card-modulo">
-              <div className="card-modulo-icone">💼</div>
+              <div className="card-modulo-icone">
+                <i className="fa fa-user" aria-hidden="true"></i>
+              </div>
               <div>
                 <div className="card-modulo-nome">Clientes</div>
                 <div className="card-modulo-detalhe">Cadastro e gestão de clientes</div>
@@ -101,7 +113,9 @@ export default function Inicio() {
               </div>
             </div>
             <div className="card-modulo">
-              <div className="card-modulo-icone">🚗</div>
+              <div className="card-modulo-icone">
+                <i className="fa fa-car" aria-hidden="true"></i>
+              </div>
               <div>
                 <div className="card-modulo-nome">Veículos</div>
                 <div className="card-modulo-detalhe">Ano, placa, cor, chassi e Renavam</div>
@@ -109,7 +123,9 @@ export default function Inicio() {
               </div>
             </div>
             <div className="card-modulo">
-              <div className="card-modulo-icone">🛡️</div>
+              <div className="card-modulo-icone">
+                <i className="fa fa-shield" aria-hidden="true"></i>
+              </div>
               <div>
                 <div className="card-modulo-nome">Blindagens</div>
                 <div className="card-modulo-detalhe">Etapas de blindagem e manutenção veicular</div>
