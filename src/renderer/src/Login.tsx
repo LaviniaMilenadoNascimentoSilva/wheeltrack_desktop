@@ -25,6 +25,13 @@ export default function Login() {
       console.log('Sucesso ao logar:', resposta)
       if (resposta.sucesso) {
         setErro('Login bem-sucedido!')
+
+        // Garanta que está puxando a propriedade 'nome_admin' em minúsculo
+        if (resposta.admin) {
+          localStorage.setItem('operador_nome', resposta.admin.nome_admin)
+          localStorage.setItem('operador_id', resposta.admin.id_admin.toString())
+        }
+
         setTimeout(() => {
           setErro(null)
           navigate('/login-ambiente')

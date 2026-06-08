@@ -17,3 +17,17 @@ export async function Listar_clientes(): Promise<any> {
     return []
   }
 }
+
+export async function Atualizar_cliente(id: number, dadosAtualizar: any): Promise<any> {
+  const resposta = await fetch(`${URL_BASE}/${id}`, {
+    method: 'PUT',
+    headers: {
+      'content-type': 'application/json'
+    },
+    body: JSON.stringify(dadosAtualizar)
+  })
+  if (!resposta.ok) {
+    throw new Error(`Erro no servidor: ${resposta.status}`)
+  }
+  return await resposta.json()
+}

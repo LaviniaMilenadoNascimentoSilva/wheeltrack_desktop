@@ -1,10 +1,15 @@
 import { useNavigate, useLocation } from 'react-router-dom'
 import './assets/css/inicio.css' // importa o arquivo de estilos
 import logo from './assets/imagens/wheeltrack.png'
+import { useState } from 'react'
 
 export default function MenuLateral() {
   const navigate = useNavigate()
   const location = useLocation()
+  const [adminLogado, setAdminLogado] = useState<string>(() => {
+    const nomeSalvo = localStorage.getItem('operador_nome')
+    return nomeSalvo && nomeSalvo !== 'undefined' ? nomeSalvo : 'Administrador'
+  })
 
   const rotaAtiva = location.pathname
   return (
@@ -81,7 +86,7 @@ export default function MenuLateral() {
         <div className="menu-usuario">
           <div className="menu-usuario-avatar">AD</div>
           <div className="menu-usuario-info">
-            <div className="menu-usuario-nome">Administrador</div>
+            <div className="menu-usuario-nome">{adminLogado}</div>
             <div className="menu-usuario-cargo">Prod · Filial 01</div>
           </div>
           <button onClick={() => navigate('/')} className="menu_botao_sair">

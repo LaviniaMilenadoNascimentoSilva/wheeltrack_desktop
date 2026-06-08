@@ -110,7 +110,7 @@ export async function Cadastrar_cliente(
 }
 
 export async function Cadastrar_veiculo(
-  marca: string,
+  cor: string,
   modelo: string,
   placa: string,
   ano_veiculo: number,
@@ -122,7 +122,7 @@ export async function Cadastrar_veiculo(
       'content-type': 'application/json'
     },
     body: JSON.stringify({
-      marca: marca,
+      cor: cor,
       modelo: modelo,
       ano_veiculo: ano_veiculo,
       placa: placa,

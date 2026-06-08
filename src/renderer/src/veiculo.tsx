@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from 'react'
 import './assets/css/veiculo.css'
 import MenuLateral from './menuLateral'
-import { Listar_veiculos, Deletar_veiculo } from './services/veiculos_api'
+import { Listar_veiculos, Deletar_veiculo, Atualizar_veiculo } from './services/veiculos_api'
 import { Cadastrar_veiculo } from './services/Adm_api'
 import { Listar_clientes } from './services/clientes_api'
 
 export default function Veiculos() {
-  const [abaAtiva, setAbaAtiva] = useState<'lista' | 'cadastro'>('lista')
+  const [abaAtiva, setAbaAtiva] = useState<'lista' | 'cadastro' | 'atualizacao'>('lista')
   const [veiculos, setVeiculos] = useState<any[]>([])
   const [clienteBanco, setClienteBanco] = useState<any[]>([])
   const [clienteSelecionado, setClienteSelecionado] = useState('')
+  const [veiculoSelecionado, setVeiculoSelecionado] = useState<any>(null)
 
   useEffect(() => {
     if (abaAtiva === 'lista') {
@@ -24,7 +25,7 @@ export default function Veiculos() {
     })
   })
 
-  const [marca, setMarca] = useState('')
+  const [Cor, setCor] = useState('')
   const [modelo, setModelo] = useState('')
   const [placa, setPlaca] = useState('')
   const [ano_veiculo, setAno_veiculo] = useState('')
@@ -34,7 +35,7 @@ export default function Veiculos() {
     event.preventDefault()
     setErro(null)
     if (
-      !marca.trim() ||
+      !Cor.trim() ||
       !modelo.trim() ||
       !placa.trim() ||
       !ano_veiculo.trim() ||
@@ -46,7 +47,7 @@ export default function Veiculos() {
     }
     try {
       const resposta = await Cadastrar_veiculo(
-        marca,
+        Cor,
         modelo,
         placa,
         parseInt(ano_veiculo),
@@ -82,6 +83,25 @@ export default function Veiculos() {
     }
   }
 
+  const lidarAtualizacao = async (e) => {
+    e.preventDefault()
+    try {
+      if(!veiculoSelecionado) {
+        setErro('Nenhum veículo selecionado para atualizar.')
+        setTimeout(() => setErro(null), 3000)
+        return
+      }
+      const placa = veiculoSelecionado.placa
+      const dadosAtualizar = {
+        
+      }
+    } catch (error) {
+      console.error('Erro ao atualizar veículo: ', error)
+      setErro('Erro ao atualizar veículo.')
+      setTimeout(() => setErro(null), 3000)
+    }
+  }
+
   return (
     <div className="tela-inteira">
       {' '}
@@ -104,7 +124,7 @@ export default function Veiculos() {
                 <div className="card-v" key={veiculo.placa}>
                   <div className="card-v-header">
                     <div>
-                      <strong>{veiculo.marca}</strong>
+                      <strong>{veiculo.Cor}</strong>
                       <p>{veiculo.usuario?.nome_usuario || 'sem dono'}</p>
                     </div>
                     <div className="placa-badge-v">{veiculo.placa}</div>
@@ -124,8 +144,8 @@ export default function Veiculos() {
                 <thead>
                   <tr className="tabela-header-v">
                     <th>PLACA</th>
-                    <th>MARCA</th>
                     <th>MODELO</th>
+                    <th>COR</th>
                     <th>ANO</th>
                     <th>CLIENTE</th>
                     <th>Situação</th>
@@ -136,17 +156,26 @@ export default function Veiculos() {
                   {veiculos.map((veiculo) => (
                     <tr key={veiculo.placa}>
                       <td>{veiculo.placa}</td>
-                      <td>{veiculo.marca}</td>
                       <td>{veiculo.modelo}</td>
+                      <td>{veiculo.cor}</td>
                       <td>{veiculo.ano_veiculo}</td>
                       <td>{veiculo.usuario?.nome_usuario || 'sem dono'}</td>
                       <td>
                         <span className="badge-v blindagem">Blindagem</span>
                       </td>
                       <td className="acoes-v">
-                        <button>✏️</button>
+                        <button
+                          onClick={() => {
+                            setVeiculoSelecionado(veiculo)
+                            setAbaAtiva('atualizacao')
+                          }}
+                        >
+                          <i className="fa fa-edit" aria-hidden="true"></i>
+                        </button>
                         <button>👁️</button>
-                        <button onClick={() => lidarDeletar(veiculo.placa)}>🗑️</button>
+                        <button onClick={() => lidarDeletar(veiculo.placa)}>
+                          <i className="fa fa-trash" aria-hidden="true"></i>
+                        </button>
                       </td>
                     </tr>
                   ))}
@@ -154,6 +183,13 @@ export default function Veiculos() {
               </table>
             </div>
           </>
+        ) : abaAtiva === 'atualizacao' ? (
+          <div className="form-card-v">
+            <form className="card-form-v" onSubimit={lidarAtualizacao}>
+              <h2>Atualize as informações do veículo {veiculoSelecionado?.placa}</h2>
+              <button onClick={() => setAbaAtiva('lista')}>Voltar</button>
+            </form>
+          </div>
         ) : (
           <div className="form-card-v">
             {erro && <div className="mensagem_erro">{erro}</div>}
@@ -162,15 +198,6 @@ export default function Veiculos() {
                 <i className="fa fa-car" aria-hidden="true"></i> Dados do Veículo
               </h3>
               <div className="form-grid-v">
-                <div className="campo-v full">
-                  <label>MARCA</label>
-                  <input
-                    type="text"
-                    placeholder="Coloque a marca do veículo"
-                    value={marca}
-                    onChange={(e) => setMarca(e.target.value)}
-                  />
-                </div>
                 <div className="campo-v">
                   <label>MODELO</label>
                   <input
@@ -178,6 +205,15 @@ export default function Veiculos() {
                     placeholder="Coloque o modelo do veículo"
                     value={modelo}
                     onChange={(e) => setModelo(e.target.value)}
+                  />
+                </div>
+                <div className="campo-v">
+                  <label>COR</label>
+                  <input
+                    type="text"
+                    placeholder="Coloque a Cor do veículo"
+                    value={Cor}
+                    onChange={(e) => setCor(e.target.value)}
                   />
                 </div>
                 <div className="campo-v">
@@ -198,7 +234,7 @@ export default function Veiculos() {
                     onChange={(e) => setPlaca(e.target.value)}
                   />
                 </div>
-                <div className="campo-v full">
+                <div className="campo-v">
                   <label>CLIENTE PROPRIETÁRIO</label>
                   <select
                     value={clienteSelecionado}

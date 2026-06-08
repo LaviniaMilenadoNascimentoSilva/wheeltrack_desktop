@@ -124,7 +124,8 @@
     background: #fff; 
     padding: 25px; 
     border-radius: 12px; 
-    border: 1px solid #e5e5e5; }
+    border: 1px solid #e5e5e5;
+ }
 .form-grid-v { 
     display: grid; 
     grid-template-columns: repeat(3, 1fr); 

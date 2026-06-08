@@ -216,3 +216,20 @@
 .btn-cancelar:hover {
   background: #f8fafc;
 }
+.atualizar-blindagem {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 20px;
+  padding: 20px;
+}
+.botoes-atualizar {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 20px;
+}
+.acoes-b {
+  display: flex;
+  gap: 5%;
+}

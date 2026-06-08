@@ -35,3 +35,17 @@ export async function Deletar_veiculo(placa: string): Promise<any> {
     return { sucesso: false, mensagem: 'Erro ao deletar veículo.' }
   }
 }
+
+export async function Atualizar_veiculo(placa: string, dadosAtualizar: any): Promise<any> {
+  const resposta = await fetch(`${URL_BASE}/${placa}`, {
+    method: 'PUT',
+    headers: {
+      'content-type': 'application/json'
+    },
+    body: JSON.stringify(dadosAtualizar)
+  })
+  if (!resposta.ok) {
+    throw new Error(`Erro no servidor: ${resposta.status}`)
+  }
+  return await resposta.json()
+}

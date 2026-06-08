@@ -1,9 +1,17 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './assets/css/manutencao.css'
 import MenuLateral from './menuLateral'
+import { Listar_manutencao } from './services/manutencao_api'
 
 export default function Manutencao() {
   const [abaAtiva, setAbaAtiva] = useState<'etapas' | 'nova-os'>('etapas')
+
+  const [manutencoes, setManutencoes] = useState<any[]>([])
+  useEffect(() => {
+    if (abaAtiva === 'etapas') {
+      Listar_manutencao().then((dados) => setManutencoes(dados))
+    }
+  }, [abaAtiva])
 
   return (
     <div className="tela-inteira">
@@ -66,36 +74,25 @@ export default function Manutencao() {
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>
-                      <strong>#MT-041</strong>
-                    </td>
-                    <td>Honda HR-V · DEF-4G56</td>
-                    <td>Preventiva</td>
-                    <td>
-                      <span className="badge-v blindagem">03 — Execução</span>
-                    </td>
-                    <td>Marcos Rocha</td>
-                    <td>20/05/2026</td>
-                    <td>
-                      <span className="badge-v blindagem">Em Andamento</span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <strong>#MT-042</strong>
-                    </td>
-                    <td>VW T-Cross · GHI-7J89</td>
-                    <td>Corretiva</td>
-                    <td>
-                      <span className="tag-etapa v-01">01 — Diagnóstico</span>
-                    </td>
-                    <td>Marcos Rocha</td>
-                    <td>25/05/2026</td>
-                    <td>
-                      <span className="badge-status aguardando">Aguardando</span>
-                    </td>
-                  </tr>
+                  {manutencoes.map((manutencao) => (
+                    <tr key={manutencao.id}>
+                      <td>
+                        <strong>#MT-{manutencao.id}</strong>
+                      </td>
+                      <td>
+                        {manutencao.placa.modelo}-{manutencao.placa}
+                      </td>
+                      <td>{manutencao.tipo}</td>
+                      <td>
+                        <span className="badge-v blindagem">03 — Execução</span>
+                      </td>
+                      <td>{manutencao.placa}</td>
+                      <td>{manutencao.data_prevista}</td>
+                      <td>
+                        <span className="badge-v blindagem">{manutencao.status}</span>
+                      </td>
+                    </tr>
+                  ))}
                 </tbody>
               </table>
             </div>

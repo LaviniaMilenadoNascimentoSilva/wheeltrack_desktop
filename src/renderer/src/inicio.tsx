@@ -10,6 +10,10 @@ import { Listar_blindagens } from './services/blindagem_api'
 
 export default function Inicio() {
   //const [menuSelecionado, setMenuSelecionado] = useState('Início')
+  const [adminLogado, setAdminLogado] = useState<string>(() => {
+    const nomeSalvo = localStorage.getItem('operador_nome')
+    return nomeSalvo && nomeSalvo !== 'undefined' ? nomeSalvo : 'Administrador'
+  })
   const [funcionarios, setFuncionarios] = useState<any[]>([])
   const [clientes, setClientes] = useState<any[]>([])
   const [veiculos, setVeiculos] = useState<any[]>([])
@@ -37,9 +41,7 @@ export default function Inicio() {
       <div className="area-principal">
         {/* ── ÁREA PRINCIPAL ── */}
         <div className="topbar">
-          <span className="topbar-breadcrumb">
-            🏠 
-          </span>
+          <span className="topbar-breadcrumb">🏠</span>
           <div className="topbar-botoes">
             <button className="topbar-botao">🔔</button>
             <button className="topbar-botao">❓</button>
@@ -50,7 +52,7 @@ export default function Inicio() {
         <div className="conteudo">
           <div className="banner">
             <div>
-              <h2 className="banner-titulo">Bem-vindo, Administrador!</h2>
+              <h2 className="banner-titulo">Bem-vindo, {adminLogado}!</h2>
               <p className="banner-subtitulo">WheelTrack Blindagens · Filial 01 — SP · Produção</p>
             </div>
             <div className="banner-badge">🌿 Produção</div>

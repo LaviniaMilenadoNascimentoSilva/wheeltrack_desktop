@@ -13,7 +13,9 @@ asarUnpack:
   - resources/**
 win:
   executableName: wheeltrack_desktop
-  icon: resources/wheeltrack.ico
+  target:
+    - nsis
+  icon: build/wheeltrack.ico
 nsis:
   artifactName: ${name}-${version}-setup.${ext}
   shortcutName: ${productName}
