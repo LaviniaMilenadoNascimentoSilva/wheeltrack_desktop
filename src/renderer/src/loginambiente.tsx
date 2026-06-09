@@ -19,10 +19,7 @@ export default function LoginAmbiente() {
   return (
     <div className="login-externo">
       <div className="login-logo-topo">
-        <img src={logo} alt="WheelTrack Logo" />
-        <span className="logo-texto">
-          Wheel<span className="verde">Track</span>
-        </span>
+        <img src={logo} alt="WheelTrack Logo" className="logo_ambiente" />
       </div>
       <p className="subtitulo-login">Selecione a empresa, filial e ambiente de acesso</p>
 
@@ -59,7 +56,9 @@ export default function LoginAmbiente() {
           </div>
         </div>
 
-        <button className="btn-acessar-principal" onClick={() => navigate('/home')}>Acessar</button>
+        <button className="btn-acessar-principal" onClick={() => navigate('/home')}>
+          Acessar
+        </button>
       </div>
     </div>
   )

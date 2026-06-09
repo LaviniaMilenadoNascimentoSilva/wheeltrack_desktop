@@ -1,4 +1,4 @@
-const URL_BASE = 'http://localhost:8081/usuario'
+const URL_BASE = 'http://3.16.156.201:8081/usuario'
 
 export async function Listar_clientes(): Promise<any> {
   try {

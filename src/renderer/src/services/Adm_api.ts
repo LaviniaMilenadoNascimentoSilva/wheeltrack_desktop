@@ -1,5 +1,5 @@
 // 1. Garante que a URL termina em /login (ou inclua o caminho do @RequestMapping da classe se houver)
-const URL_BASE = 'http://localhost:8081/admin'
+const URL_BASE = 'http://3.16.156.201:8081/admin'
 
 export async function login(email: string, senha: string): Promise<any> {
   const resposta = await fetch(`${URL_BASE}/login`, {

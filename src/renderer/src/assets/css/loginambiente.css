@@ -23,7 +23,9 @@
   color: #1e293b;
 }
 .logo-texto .verde {
-  color: #88b04b;
+  color: #2970ff;
+  font-size: 32px;
+  font-weight: bold;
 }
 .subtitulo-login {
   color: #64748b;
@@ -120,4 +122,8 @@
 }
 .btn-acessar-principal:hover {
   background-color: #2970ff;
+}
+.logo_ambiente{
+  width: 80px;
+  height: 5px;
 }

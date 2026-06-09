@@ -1,4 +1,4 @@
-const URL_BASE = 'http://localhost:8081/manutencao'
+const URL_BASE = 'http://3.16.156.201:8081/manutencao'
 
 export async function Listar_manutencao(): Promise<any> {
   try {
