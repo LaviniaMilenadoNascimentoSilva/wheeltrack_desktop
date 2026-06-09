@@ -1,4 +1,4 @@
-const URL_BASE = 'http://localhost:8081/blindagem'
+const URL_BASE = 'http://3.16.156.201:8081/blindagem'
 
 export async function Listar_blindagens(): Promise<any> {
   try {

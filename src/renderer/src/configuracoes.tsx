@@ -1,17 +1,18 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './assets/css/configuracoes.css'
 import MenuLateral from './menuLateral'
-
-const USUARIOS_LISTA = [
-  { id: 1, nome: 'Administrador', cargo: 'Admin' },
-  { id: 2, nome: 'Ana Beatriz', cargo: 'Supervisor' },
-  { id: 3, nome: 'Carlos Eduardo', cargo: 'Operador' }
-]
+import { Listar_funcionarios } from './services/funcionario_api'
 
 export default function Configuracoes() {
   const [aba, setAba] = useState('permissoes')
 
-  const [usuarioSelecionado, setUsuarioSelecionado] = useState(USUARIOS_LISTA[0])
+  const [funcionarioSelecionado, setFuncionarioSelecionado] = useState('')
+  const [funcionarioBanco, setFuncionarioBanco] = useState<any[]>([])
+  useEffect(() => {
+    Listar_funcionarios().then((dados) => {
+      setFuncionarioBanco(dados)
+    })
+  })
   const [permissaoVer, setPermissaoVer] = useState(true)
   const [permissaoEditar, setPermissaoEditar] = useState(false)
   const [permissaoExcluir, setPermissaoExcluir] = useState(false)
@@ -65,19 +66,18 @@ export default function Configuracoes() {
         {/* Conteúdo da Aba: PERMISSÕES */}
         {aba === 'permissoes' && (
           <div className="card-aba">
-            <h3>Gerenciar Acesso: {usuarioSelecionado.nome}</h3>
+            <h3>Gerenciar Acesso: {/*funcionarioSelecionado.nome_funcionario*/}</h3>
 
             <div className="campo">
               <label>Selecionar Colaborador:</label>
-              <select
-                value={usuarioSelecionado.id}
-                onChange={(e) => tratarMudancaUsuario(e.target.value)}
-              >
-                {USUARIOS_LISTA.map((u) => (
-                  <option key={u.id} value={u.id}>
-                    {u.nome} ({u.cargo})
+              <select value={funcionarioSelecionado} onChange={(e) => setFuncionarioSelecionado(e.target.value)}>
+                <option value="">Selecione um funcionário</option>
+                {funcionarioBanco.map((func) => (
+                  <option key={func.id_funcionario} value={func.id_funcionario}>
+                    {func.nome_funcionario}
                   </option>
                 ))}
+
               </select>
             </div>
 
