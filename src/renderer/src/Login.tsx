@@ -8,6 +8,7 @@ export default function Login() {
   const [email, setEmail] = useState('')
   const [senha, setSenha] = useState('')
   const [erro, setErro] = useState<string | null>(null)
+  const [sucesso, setSucesso] = useState<string | null>(null)
   const navigate = useNavigate()
 
   const lidar_login = async (event: React.FormEvent): Promise<void> => {
@@ -24,7 +25,7 @@ export default function Login() {
       const resposta = await login(email, senha)
       console.log('Sucesso ao logar:', resposta)
       if (resposta.sucesso) {
-        setErro('Login bem-sucedido!')
+        setSucesso('Login bem-sucedido!')
 
         // Garanta que está puxando a propriedade 'nome_admin' em minúsculo
         if (resposta.admin) {
@@ -33,7 +34,7 @@ export default function Login() {
         }
 
         setTimeout(() => {
-          setErro(null)
+          setSucesso(null)
           navigate('/login-ambiente')
         }, 2000)
       } else {
@@ -58,6 +59,7 @@ export default function Login() {
         <p>Faça login para acessar o sistema WheelTrack</p>
       </div>
       {erro && <div className="mensagem_erro">{erro}</div>}
+      {sucesso && <div className="mensagem_sucesso">{sucesso}</div>}
       <form className="formulario" onSubmit={lidar_login}>
         <div className="login_senha">
           <h3>LOGIN</h3>

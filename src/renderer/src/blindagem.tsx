@@ -50,6 +50,7 @@ export default function Blindagem() {
   }
 
   const [erro, setErro] = useState<string | null>(null)
+  const [sucesso, setSucesso] = useState<string | null>(null)
   const [nivel_blindagem, setNivel_blindagem] = useState('')
   const [status, setStatus] = useState('PENDENTE')
   const lidarCadastro = async (event: React.FormEvent): Promise<void> => {
@@ -64,8 +65,8 @@ export default function Blindagem() {
       const resposta = await Cadastrar_blindagem(veiculoSelecionado, nivel_blindagem, status)
       console.log('Sucesso ao cadastrar: ', resposta)
       if (resposta && resposta.id) {
-        setErro('Cadastro bem-sucedido!')
-        setTimeout(() => setErro(null), 3000)
+        setSucesso('Cadastro bem-sucedido!')
+        setTimeout(() => setSucesso(null), 3000)
       } else {
         setErro('Erro ao cadastrar blindagem.')
         setTimeout(() => setErro(null), 3000)
@@ -82,8 +83,8 @@ export default function Blindagem() {
     if (confirmar) {
       const sucesso = await Deletar_blindagem(id)
       if (sucesso) {
-        setErro('Blindagem deletada com sucesso!')
-        setTimeout(() => setErro(null), 3000)
+        setSucesso('Blindagem deletada com sucesso!')
+        setTimeout(() => setSucesso(null), 3000)
         setAbaAtiva('lista')
       } else {
         setErro('Erro ao deletar blindagem.')
@@ -255,7 +256,8 @@ export default function Blindagem() {
         ) : (
           /* FORMULÁRIO DE NOVA OS (Conforme image_a131e6.png) */
           <div className="form-os-card">
-            {erro && <div className="mensagem-erro">{erro}</div>}
+            {erro && <div className="mensagem_erro">{erro}</div>}
+            {sucesso && <div className="mensagem_sucesso">{sucesso}</div>}
             <h3 className="form-os-titulo">
               <i className="fa fa-shield" aria-hidden="true"></i> Dados da Ordem de Serviço
             </h3>

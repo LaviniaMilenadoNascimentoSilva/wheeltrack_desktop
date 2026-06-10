@@ -20,6 +20,7 @@ export default function Funcionarios() {
   const [cargo, setCargo] = useState('')
   const [senha_funcionario, setSenha_funcionario] = useState('')
   const [erro, setErro] = useState<string | null>(null)
+  const [sucesso, setSucesso] = useState<string | null>(null)
 
   const lidarCadastro = async (event: React.FormEvent): Promise<void> => {
     event.preventDefault()
@@ -34,8 +35,8 @@ export default function Funcionarios() {
       const resposta = await Funcionario_cadastro(nome_funcionario, email, cargo, senha_funcionario)
       console.log('Sucesso ao cadastrar: ', resposta)
       if (resposta.sucesso) {
-        setErro('Cadastro bem-sucedido!')
-        setTimeout(() => setErro(null), 3000)
+        setSucesso('Cadastro bem-sucedido!')
+        setTimeout(() => setSucesso(null), 3000)
       } else {
         setErro(resposta.mensagem)
         setTimeout(() => setErro(null), 3000)
@@ -135,6 +136,7 @@ export default function Funcionarios() {
         ) : (
           <div className="formulario-simples">
             {erro && <div className="mensagem_erro">{erro}</div>}
+            {sucesso && <div className="mensagem_sucesso">{sucesso}</div>}
             {/* Conteúdo do formulário viria aqui */}
             <form className="card-form" onSubmit={lidarCadastro}>
               <div className="grid-form">

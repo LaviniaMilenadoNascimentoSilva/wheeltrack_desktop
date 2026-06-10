@@ -19,6 +19,7 @@ export default function Clientes() {
   const [email_cliente, setEmail_cliente] = useState('')
   const [senha_cliente, setSenha_cliente] = useState('')
   const [erro, setErro] = useState<string | null>(null)
+  const [sucesso, setSucesso] = useState<string | null>(null)
 
   const LidarCadastro = async (event: React.FormEvent): Promise<void> => {
     event.preventDefault()
@@ -33,8 +34,8 @@ export default function Clientes() {
       const resposta = await Cadastrar_cliente(nome_cliente, email_cliente, senha_cliente)
       console.log('Sucesso ao cadastrar: ', resposta)
       if (resposta.sucesso) {
-        setErro('Cadastro bem-sucedido!')
-        setTimeout(() => setErro(null), 3000)
+        setSucesso('Cadastro bem-sucedido!')
+        setTimeout(() => setSucesso(null), 3000)
       } else {
         setErro(resposta.mensagem)
         setTimeout(() => setErro(null), 3000)
@@ -164,6 +165,7 @@ export default function Clientes() {
           ) : (
             <section className="sessao-cadastro">
               {erro && <div className="mensagem_erro">{erro}</div>}
+              {sucesso && <div className="mensagem_sucesso">{sucesso}</div>}
               <form className="card-form" onSubmit={LidarCadastro}>
                 <h3 className="titulo-card">Dados Cadastrais</h3>
                 <div className="grid-form">

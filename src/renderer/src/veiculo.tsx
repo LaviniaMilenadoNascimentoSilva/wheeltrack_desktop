@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import './assets/css/veiculo.css'
+import './assets/css/login.css'
 import MenuLateral from './menuLateral'
 import { Listar_veiculos, Deletar_veiculo, Atualizar_veiculo } from './services/veiculos_api'
 import { Cadastrar_veiculo } from './services/Adm_api'
@@ -30,6 +31,7 @@ export default function Veiculos() {
   const [placa, setPlaca] = useState('')
   const [ano_veiculo, setAno_veiculo] = useState('')
   const [erro, setErro] = useState<string | null>(null)
+  const [sucesso, setSucesso] = useState<string | null>(null)
 
   const LidarCadastro = async (event: React.FormEvent): Promise<void> => {
     event.preventDefault()
@@ -55,8 +57,8 @@ export default function Veiculos() {
       )
       console.log('Sucesso ao cadastrar: ', resposta)
       if (resposta.sucesso) {
-        setErro('Cadastro bem-sucedido!')
-        setTimeout(() => setErro(null), 3000)
+        setSucesso('Cadastro bem-sucedido!')
+        setTimeout(() => setSucesso(null), 3000)
       } else {
         setErro(resposta.mensagem)
         setTimeout(() => setErro(null), 3000)
@@ -73,8 +75,8 @@ export default function Veiculos() {
     if (confirmar) {
       const sucesso = await Deletar_veiculo(placa)
       if (sucesso) {
-        setErro('Veículo deletado com sucesso!')
-        setTimeout(() => setErro(null), 2000)
+        setSucesso('Veículo deletado com sucesso!')
+        setTimeout(() => setSucesso(null), 2000)
         setAbaAtiva('lista')
       } else {
         setErro('Erro ao deletar o veiculo.')
@@ -86,15 +88,13 @@ export default function Veiculos() {
   const lidarAtualizacao = async (e) => {
     e.preventDefault()
     try {
-      if(!veiculoSelecionado) {
+      if (!veiculoSelecionado) {
         setErro('Nenhum veículo selecionado para atualizar.')
         setTimeout(() => setErro(null), 3000)
         return
       }
       const placa = veiculoSelecionado.placa
-      const dadosAtualizar = {
-        
-      }
+      const dadosAtualizar = {}
     } catch (error) {
       console.error('Erro ao atualizar veículo: ', error)
       setErro('Erro ao atualizar veículo.')
@@ -183,16 +183,10 @@ export default function Veiculos() {
               </table>
             </div>
           </>
-        ) : abaAtiva === 'atualizacao' ? (
-          <div className="form-card-v">
-            <form className="card-form-v" onSubimit={lidarAtualizacao}>
-              <h2>Atualize as informações do veículo {veiculoSelecionado?.placa}</h2>
-              <button onClick={() => setAbaAtiva('lista')}>Voltar</button>
-            </form>
-          </div>
         ) : (
           <div className="form-card-v">
             {erro && <div className="mensagem_erro">{erro}</div>}
+            {sucesso && <div className="mesnagem_sucesso">{sucesso}</div>}
             <form className="card-form-v" onSubmit={LidarCadastro}>
               <h3 className="form-secao-titulo">
                 <i className="fa fa-car" aria-hidden="true"></i> Dados do Veículo
